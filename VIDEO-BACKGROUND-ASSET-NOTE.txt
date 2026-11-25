@@ -1,0 +1,5 @@
+HOME VIDEO BACKGROUND ASSET NOTE
+
+The latest supplied attachments in this conversation are screenshots only. No MP4 video files were present in the project or /mnt/data when this update was made. The Home hero therefore retains a local botanical photograph fallback and is styled for a video background, but no fabricated or third-party video has been added.
+
+To enable the requested actual video background, add the user's MP4 file(s) under assets/videos/ and wire their exact filenames into the existing gardenVideos array in app.js. Keep autoplay, muted, loop and playsinline on the #heroVideo element when the video assets are supplied.

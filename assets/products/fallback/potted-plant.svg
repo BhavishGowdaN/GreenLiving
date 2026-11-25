@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 760" role="img" aria-label="Potted green houseplant illustration">
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#f8f6ed"/><stop offset="1" stop-color="#e8eee2"/></linearGradient><linearGradient id="pot" x2="0" y2="1"><stop stop-color="#eee7d9"/><stop offset="1" stop-color="#cfc4ae"/></linearGradient></defs>
+<rect width="640" height="760" rx="28" fill="url(#bg)"/><ellipse cx="320" cy="650" rx="180" ry="24" fill="#b7bcae" opacity=".35"/>
+<g fill="none" stroke="#315d3b" stroke-width="9" stroke-linecap="round"><path d="M320 505Q320 340 320 155"/><path d="M320 445Q240 310 150 260"/><path d="M320 405Q400 270 500 230"/><path d="M320 350Q260 220 245 120"/><path d="M320 325Q395 185 420 105"/></g>
+<g fill="#4f8a55" stroke="#315d3b" stroke-width="5"><ellipse cx="235" cy="235" rx="48" ry="112" transform="rotate(-42 235 235)"/><ellipse cx="420" cy="205" rx="48" ry="112" transform="rotate(38 420 205)"/><ellipse cx="250" cy="145" rx="42" ry="102" transform="rotate(-12 250 145)"/><ellipse cx="405" cy="135" rx="43" ry="105" transform="rotate(22 405 135)"/><ellipse cx="150" cy="270" rx="42" ry="100" transform="rotate(-52 150 270)"/><ellipse cx="500" cy="235" rx="42" ry="100" transform="rotate(48 500 235)"/></g>
+<path d="M185 475h270l-30 160H215z" fill="url(#pot)" stroke="#a99e8c" stroke-width="7"/><ellipse cx="320" cy="476" rx="135" ry="25" fill="#4a382b"/><path d="M205 470q115 28 230 0" fill="none" stroke="#6d523a" stroke-width="9"/>
+</svg>

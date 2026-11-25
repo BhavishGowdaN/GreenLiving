@@ -1,0 +1,13 @@
+GREEN LIVING — SINGLE KLING CINEMATIC HERO
+
+- Replaced the six-clip hero playback sequence with the supplied Kling video at public/videos/green-living-journey.mp4.
+- The hero video does not autoplay. It starts on its first frame.
+- GSAP ScrollTrigger pins the hero while wheel scrolling scrubs the complete video.
+- The same scroll progress drives a camera-style scale animation (strong seedling push-in, then a gradual settle through the environments).
+- Scrolling upward reverses both video time and zoom.
+- After the final frame, the pin releases and the original Green Living homepage sections continue in normal document flow.
+- Existing navigation, CTA, shop, studio, dashboard, customizer and plant-care functionality remain in the project.
+- This source project is vanilla HTML/CSS/JavaScript, so GSAP is integrated without converting/rebuilding it in React.
+
+Run: npm start, then open http://localhost:3000.
+GSAP/ScrollTrigger are loaded from jsDelivr and require internet access; the MP4 is local.

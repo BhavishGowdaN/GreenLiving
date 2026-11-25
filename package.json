@@ -1,0 +1,17 @@
+{
+  "name": "greenliving_blender3d_complete",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js && node --check customizer.js && node --check plantAnatomy.js && node --check garden-dashboard.js && node --check admin.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  }
+}

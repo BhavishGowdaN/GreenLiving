@@ -1,0 +1,16 @@
+GREEN LIVING — CINEMATIC SCROLL HERO
+
+Run locally:
+1. Install Node.js 20+ if it is not already installed.
+2. Open a terminal in this GreenLiving folder.
+3. Run: npm start
+4. Open: http://localhost:3000
+
+Hero behavior:
+- The Kling MP4 is assets/videos/green-living-journey.mp4.
+- Scroll down to advance through the video; scroll up to rewind.
+- The hero remains pinned until the video reaches its final frame.
+- After the final frame, the existing INTRO section immediately below the hero appears.
+- The original site sections and interactions remain in place.
+
+GSAP and ScrollTrigger are loaded from jsDelivr in index.html, so an internet connection is required for the scroll pinning library.

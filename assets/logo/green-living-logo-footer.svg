@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Green Living — Nature Inside the Architecture">
+    <defs>
+        <linearGradient id="gl-gold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#E9D19A"/><stop offset=".55" stop-color="#C5A66B"/><stop offset="1" stop-color="#A9853F"/>
+        </linearGradient>
+        <radialGradient id="gl-sun" cx=".5" cy=".42" r=".7">
+            <stop offset="0" stop-color="#F6E5B8"/><stop offset=".72" stop-color="#DCC084"/><stop offset="1" stop-color="#C5A66B"/>
+        </radialGradient>
+        <linearGradient id="gl-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FAF6EC"/><stop offset="1" stop-color="#E7DCC1"/>
+        </linearGradient>
+        <linearGradient id="gl-peak-back" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2E5F57"/><stop offset="1" stop-color="#1C443E"/>
+        </linearGradient>
+        <linearGradient id="gl-peak-front" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1E4640"/><stop offset="1" stop-color="#122E29"/>
+        </linearGradient>
+        <linearGradient id="gl-ground" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F3EDDC"/><stop offset="1" stop-color="#DCCFB2"/>
+        </linearGradient>
+        <clipPath id="gl-clip"><circle cx="100" cy="100" r="84"/></clipPath>
+    </defs>
+
+    <g transform="translate(34,2) scale(0.72)">
+        <circle cx="100" cy="100" r="96" fill="none" stroke="url(#gl-gold)" stroke-width="3.4"/>
+        <circle cx="100" cy="100" r="89.5" fill="none" stroke="url(#gl-gold)" stroke-width="1.2" opacity=".65"/>
+        <g clip-path="url(#gl-clip)">
+            <circle cx="100" cy="100" r="84" fill="url(#gl-sky)"/>
+            <g stroke="url(#gl-gold)" stroke-width="2.4" stroke-linecap="round">
+                <line x1="124.4" y1="79.1" x2="132" y2="76.4"/>
+                <line x1="116.7" y1="68.1" x2="121.9" y2="62"/>
+                <line x1="104.5" y1="62.4" x2="105.9" y2="54.5"/>
+                <line x1="95.5"  y1="62.4" x2="94.1" y2="54.5"/>
+                <line x1="83.3"  y1="68.1" x2="78.1" y2="62"/>
+                <line x1="75.6"  y1="79.1" x2="68"   y2="76.4"/>
+            </g>
+            <circle cx="100" cy="88" r="22" fill="url(#gl-sun)"/>
+            <path d="M48 132 L100 58 L152 132 Z" fill="url(#gl-peak-back)"/>
+            <path d="M100 58 L84 82" fill="none" stroke="#E9D19A" stroke-width="1.6" opacity=".85"/>
+            <path d="M22 132 L70 76 L118 132 Z" fill="url(#gl-peak-front)"/>
+            <path d="M82 132 L130 76 L178 132 Z" fill="url(#gl-peak-front)"/>
+            <rect x="14" y="130" width="172" height="58" fill="url(#gl-ground)"/>
+            <path d="M100 131 C 90 139, 112 146, 100 154 C 90 161, 110 167, 100 174"
+                  fill="none" stroke="url(#gl-gold)" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M60 162 C 38 154, 23 131, 27 101 C 51 110, 64 133, 60 162 Z" fill="#255A4C"/>
+            <path d="M57 157 C 45 143, 35 124, 31 106" fill="none" stroke="url(#gl-gold)" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M140 162 C 162 154, 177 131, 173 101 C 149 110, 136 133, 140 162 Z" fill="#255A4C"/>
+            <path d="M143 157 C 155 143, 165 124, 169 106" fill="none" stroke="url(#gl-gold)" stroke-width="1.7" stroke-linecap="round"/>
+        </g>
+    </g>
+
+    <text x="138" y="248" text-anchor="middle"
+          font-family="Cinzel, 'Playfair Display', Georgia, serif"
+          font-size="24" font-weight="700" letter-spacing="5"
+          fill="#F5F1E7">GREEN LIVING</text>
+
+    <text x="138" y="272" text-anchor="middle"
+          font-family="Cinzel, 'Playfair Display', Georgia, serif"
+          font-size="8.5" letter-spacing="2.6"
+          fill="#C9B285">NATURE INSIDE THE ARCHITECTURE</text>
+</svg>

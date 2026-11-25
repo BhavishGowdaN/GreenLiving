@@ -1,0 +1,472 @@
+
+/* =========================================================
+   GREEN LIVING — FOREST REFERENCE BACKGROUND TEMPLATE
+   Shared botanical visual language for Shop, My Garden,
+   and Customize Plant heading badge.
+   ========================================================= */
+
+:root {
+  --forest-reference-image: url("assets/backgrounds/forest-reference-template.png");
+}
+
+/* Shop Plants hero: forest image with readable emerald text space */
+html body main > section#shop.shop-section .shop-hero {
+  background-image:
+    linear-gradient(90deg, rgba(3, 24, 14, .66) 0%, rgba(5, 34, 19, .42) 54%, rgba(4, 25, 15, .24) 100%),
+    var(--forest-reference-image) !important;
+  background-size: cover !important;
+  background-position: center 48% !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(220, 239, 190, .34) !important;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255,255,255,.13) !important;
+  backdrop-filter: blur(2px);
+}
+
+/* My Garden: use the same forest atmosphere without hiding dashboard data */
+html body main > section#dashboard.dashboard-section .garden-dashboard {
+  background-image:
+    linear-gradient(180deg, rgba(4, 28, 17, .82), rgba(5, 39, 23, .76)),
+    var(--forest-reference-image) !important;
+  background-size: cover !important;
+  background-position: center 56% !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(204, 229, 171, .32) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+
+/* Customize Plant badge / heading: a compact botanical glass panel */
+html body main > section#customize.customizer-section .customizer-page-heading {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(22px, 3vw, 38px) !important;
+  border: 1px solid rgba(220, 239, 190, .38) !important;
+  border-radius: 26px !important;
+  background:
+    linear-gradient(105deg, rgba(4, 31, 18, .82), rgba(12, 61, 35, .58)),
+    var(--forest-reference-image) center 46% / cover no-repeat !important;
+  box-shadow: 0 18px 48px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.16) !important;
+  backdrop-filter: blur(8px);
+}
+html body main > section#customize.customizer-section .customizer-page-heading::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(3,22,13,.38), transparent 72%);
+}
+html body main > section#customize.customizer-section .customizer-page-heading .eyebrow {
+  color: #d4e9a2 !important;
+  letter-spacing: .18em;
+}
+html body main > section#customize.customizer-section .customizer-page-heading h2,
+html body main > section#customize.customizer-section .customizer-page-heading p {
+  color: #f5f4e8 !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,.34);
+}
+
+/* Keep the shared image treatment responsive and legible */
+@media (max-width: 700px) {
+  html body main > section#shop.shop-section .shop-hero {
+    background-position: 58% center !important;
+  }
+  html body main > section#dashboard.dashboard-section .garden-dashboard {
+    background-position: 58% center !important;
+  }
+  html body main > section#customize.customizer-section .customizer-page-heading {
+    border-radius: 20px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL CASCADE FIX — FORCE THE REFERENCE IMAGE TO DISPLAY
+   These selectors intentionally match the existing premium
+   theme's dark/light selectors and are loaded last.
+   ========================================================= */
+
+:root {
+  --forest-reference-image: url("assets/backgrounds/forest-reference-template.png");
+}
+
+/* SHOP PLANTS — show the generated forest image behind the hero content */
+html body.dark-mode main section#shop.shop-section div.shop-hero,
+html body:not(.dark-mode) main section#shop.shop-section div.shop-hero,
+html body main section#shop.shop-section div.shop-hero {
+  background-color: #082819 !important;
+  background-image:
+    linear-gradient(90deg, rgba(3, 24, 14, .56) 0%, rgba(5, 34, 19, .30) 55%, rgba(4, 25, 15, .18) 100%),
+    var(--forest-reference-image) !important;
+  background-size: cover !important;
+  background-position: center 48% !important;
+  background-repeat: no-repeat !important;
+  background-blend-mode: normal !important;
+  border: 1px solid rgba(220, 239, 190, .38) !important;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255,255,255,.14) !important;
+}
+
+/* Keep the existing product photograph visible as the hero's product focus */
+html body.dark-mode main section#shop.shop-section div.shop-hero .shop-hero-visual,
+html body:not(.dark-mode) main section#shop.shop-section div.shop-hero .shop-hero-visual {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* MY GARDEN — apply the reference image to the dashboard heading and dashboard panel */
+html body.dark-mode main section#dashboard.dashboard-section .section-heading,
+html body:not(.dark-mode) main section#dashboard.dashboard-section .section-heading,
+html body main section#dashboard.dashboard-section .section-heading {
+  background:
+    linear-gradient(90deg, rgba(4, 28, 17, .72), rgba(5, 39, 23, .48)),
+    var(--forest-reference-image) center 43% / cover no-repeat !important;
+  border: 1px solid rgba(204, 229, 171, .30) !important;
+  border-radius: 24px !important;
+  padding: clamp(20px, 2.5vw, 34px) !important;
+  box-shadow: 0 18px 46px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+
+html body.dark-mode main section#dashboard.dashboard-section div.garden-dashboard,
+html body:not(.dark-mode) main section#dashboard.dashboard-section div.garden-dashboard,
+html body main section#dashboard.dashboard-section div.garden-dashboard {
+  background-color: rgba(4, 28, 17, .76) !important;
+  background-image:
+    linear-gradient(145deg, rgba(4, 28, 17, .82), rgba(5, 39, 23, .72)),
+    var(--forest-reference-image) !important;
+  background-size: cover !important;
+  background-position: center 54% !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(204, 229, 171, .34) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+
+/* CUSTOMIZE PLANT — the heading/badge becomes a botanical glass panel */
+html body.dark-mode main section#customize.customizer-section div.customizer-page-heading,
+html body:not(.dark-mode) main section#customize.customizer-section div.customizer-page-heading,
+html body main section#customize.customizer-section div.customizer-page-heading {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  background-color: rgba(4, 31, 18, .78) !important;
+  background-image:
+    linear-gradient(105deg, rgba(4, 31, 18, .78), rgba(12, 61, 35, .48)),
+    var(--forest-reference-image) !important;
+  background-size: cover !important;
+  background-position: center 42% !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(220, 239, 190, .40) !important;
+  border-radius: 28px !important;
+  box-shadow: 0 18px 48px rgba(0,0,0,.26), inset 0 1px 0 rgba(255,255,255,.16) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+html body.dark-mode main section#customize.customizer-section div.customizer-page-heading h2,
+html body.dark-mode main section#customize.customizer-section div.customizer-page-heading p,
+html body:not(.dark-mode) main section#customize.customizer-section div.customizer-page-heading h2,
+html body:not(.dark-mode) main section#customize.customizer-section div.customizer-page-heading p {
+  color: #f5f4e8 !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,.38) !important;
+}
+
+html body.dark-mode main section#customize.customizer-section div.customizer-page-heading .eyebrow,
+html body:not(.dark-mode) main section#customize.customizer-section div.customizer-page-heading .eyebrow {
+  color: #d4e9a2 !important;
+}
+
+/* Small-screen positioning */
+@media (max-width: 700px) {
+  html body.dark-mode main section#shop.shop-section div.shop-hero,
+  html body:not(.dark-mode) main section#shop.shop-section div.shop-hero {
+    background-position: 56% center !important;
+  }
+  html body.dark-mode main section#dashboard.dashboard-section div.garden-dashboard,
+  html body:not(.dark-mode) main section#dashboard.dashboard-section div.garden-dashboard,
+  html body.dark-mode main section#customize.customizer-section div.customizer-page-heading,
+  html body:not(.dark-mode) main section#customize.customizer-section div.customizer-page-heading {
+    background-position: 56% center !important;
+  }
+}
+
+
+/* ==========================================================
+   GARDEN STUDIO — MATCH THE MY GARDEN DASHBOARD VISUAL STYLE
+   Uses the real Garden Studio DOM classes from index.html:
+   .studio-backdrop, .studio-backdrop-photo, .studio-intro,
+   and .studio-panel. No HTML or JavaScript changes required.
+   ========================================================== */
+
+:root {
+  --forest-reference-image: url("assets/backgrounds/forest-reference-template.png");
+}
+
+/* Full Garden Studio section background */
+html body main > section#studio.studio-section {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  background-color: #061f13 !important;
+  background-image:
+    linear-gradient(135deg, rgba(3, 22, 13, .54), rgba(5, 38, 23, .42)),
+    var(--forest-reference-image) !important;
+  background-size: cover !important;
+  background-position: center 42% !important;
+  background-repeat: no-repeat !important;
+}
+
+/* The existing photo layer must not cover the section with its old Unsplash image */
+html body main > section#studio.studio-section .studio-backdrop {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
+html body main > section#studio.studio-section .studio-backdrop-photo {
+  position: absolute !important;
+  inset: -18px !important;
+  background-image: var(--forest-reference-image) !important;
+  background-size: cover !important;
+  background-position: center 42% !important;
+  background-repeat: no-repeat !important;
+  filter: blur(2px) saturate(1.08) brightness(.62) !important;
+  transform: scale(1.035) !important;
+}
+
+html body main > section#studio.studio-section .studio-backdrop-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    linear-gradient(180deg, rgba(3, 23, 14, .30) 0%, rgba(4, 29, 17, .48) 48%, rgba(3, 22, 13, .72) 100%),
+    radial-gradient(100% 85% at 50% 38%, rgba(13, 62, 35, .06) 28%, rgba(2, 17, 10, .42) 100%) !important;
+}
+
+/* Dashboard-style glass heading banner */
+html body main > section#studio.studio-section .studio-intro {
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(100%, 1120px) !important;
+  max-width: 1120px !important;
+  margin: 0 auto clamp(26px, 3.4vw, 44px) !important;
+  padding: clamp(28px, 3.2vw, 44px) clamp(22px, 3vw, 42px) !important;
+  text-align: center !important;
+  border: 1px solid rgba(204, 229, 171, .34) !important;
+  border-radius: 26px !important;
+  background:
+    linear-gradient(90deg, rgba(4, 28, 17, .82), rgba(5, 39, 23, .62)),
+    var(--forest-reference-image) center 43% / cover no-repeat !important;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 255, 255, .14) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+html body main > section#studio.studio-section .studio-intro .eyebrow {
+  color: #d8bd78 !important;
+}
+
+html body main > section#studio.studio-section .studio-intro .studio-heading,
+html body main > section#studio.studio-section .studio-intro h2 {
+  color: #f5f0df !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .38) !important;
+}
+
+html body main > section#studio.studio-section .studio-intro .studio-heading em {
+  color: #c5df83 !important;
+}
+
+html body main > section#studio.studio-section .studio-intro .studio-lead,
+html body main > section#studio.studio-section .studio-intro .studio-support {
+  color: rgba(246, 244, 229, .94) !important;
+}
+
+/* Main botanical explorer: same layered emerald/glass treatment as dashboard */
+html body main > section#studio.studio-section .studio-panel {
+  position: relative !important;
+  z-index: 2 !important;
+  border: 1px solid rgba(204, 229, 171, .34) !important;
+  border-radius: 30px !important;
+  background-color: rgba(4, 28, 17, .78) !important;
+  background-image:
+    linear-gradient(145deg, rgba(4, 28, 17, .86), rgba(5, 39, 23, .76)),
+    var(--forest-reference-image) !important;
+  background-size: cover !important;
+  background-position: center 56% !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .12) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+/* Keep inner interactive cards legible while preserving all controls */
+html body main > section#studio.studio-section .studio-panel .anatomy-card,
+html body main > section#studio.studio-section .studio-panel .anatomy-stage {
+  background-color: rgba(5, 34, 21, .84) !important;
+  border-color: rgba(204, 229, 171, .26) !important;
+}
+
+@media (max-width: 768px) {
+  html body main > section#studio.studio-section .studio-intro {
+    padding: 24px 18px !important;
+    border-radius: 20px !important;
+  }
+  html body main > section#studio.studio-section .studio-panel {
+    border-radius: 22px !important;
+  }
+}
+
+/* GREENLIVING VISUAL FIXES
+   Append this file's contents to the END of forest-reference-template.css.
+   Keeps existing modules and interactions unchanged.
+*/
+
+:root {
+  --forest-reference-image: url("assets/backgrounds/forest-reference-template.png");
+}
+
+/* PLANT CARE / PASSPORT: correct low-contrast CTA text */
+html body main section#plantCare.passport-section .passport-content a.btn.btn-dark {
+  color: #173b28 !important;
+  -webkit-text-fill-color: #173b28 !important;
+  background: #f4f0df !important;
+  border: 1px solid rgba(224, 207, 151, .9) !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255,255,255,.65) !important;
+}
+
+html body main section#plantCare.passport-section .passport-content a.btn.btn-dark:hover,
+html body main section#plantCare.passport-section .passport-content a.btn.btn-dark:focus-visible {
+  color: #f8f4e8 !important;
+  -webkit-text-fill-color: #f8f4e8 !important;
+  background: #174b31 !important;
+  border-color: rgba(220, 239, 190, .7) !important;
+}
+
+/* GARDEN STUDIO: put the forest template on the actual intro banner */
+html body main section#studio.studio-section .studio-intro {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  width: min(100% - 48px, 1240px) !important;
+  margin: 0 auto clamp(28px, 4vw, 48px) !important;
+  padding: clamp(34px, 5vw, 64px) clamp(22px, 4vw, 56px) !important;
+  border: 1px solid rgba(220, 239, 190, .42) !important;
+  border-radius: 28px !important;
+  background-color: rgba(4, 29, 18, .72) !important;
+  background-image:
+    linear-gradient(105deg, rgba(3, 25, 15, .82), rgba(8, 54, 31, .62)),
+    var(--forest-reference-image) !important;
+  background-size: cover !important;
+  background-position: center 44% !important;
+  background-repeat: no-repeat !important;
+  box-shadow: 0 22px 54px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.15) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
+  text-align: center !important;
+}
+
+html body main section#studio.studio-section .studio-intro::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  background: radial-gradient(ellipse at 50% 0%, rgba(185, 218, 126, .18), transparent 68%) !important;
+}
+
+html body main section#studio.studio-section .studio-intro .eyebrow {
+  color: #d8bd76 !important;
+  letter-spacing: .2em !important;
+}
+
+html body main section#studio.studio-section .studio-intro .studio-heading,
+html body main section#studio.studio-section .studio-intro .studio-lead,
+html body main section#studio.studio-section .studio-intro .studio-support {
+  color: #f7f3e6 !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,.38) !important;
+}
+
+html body main section#studio.studio-section .studio-intro .studio-heading em {
+  color: #c5e58b !important;
+}
+
+/* Keep the explorer as its own readable glass panel below the intro */
+html body main section#studio.studio-section #studioBotanicalPanel.studio-panel {
+  position: relative !important;
+  z-index: 1 !important;
+  background-color: rgba(4, 31, 19, .78) !important;
+  background-image: linear-gradient(145deg, rgba(4, 31, 19, .84), rgba(7, 48, 29, .72)) !important;
+  border: 1px solid rgba(204, 229, 171, .36) !important;
+  border-radius: 26px !important;
+  box-shadow: 0 22px 56px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.12) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+@media (max-width: 700px) {
+  html body main section#studio.studio-section .studio-intro {
+    width: calc(100% - 28px) !important;
+    padding: 30px 18px !important;
+    border-radius: 20px !important;
+    margin-bottom: 24px !important;
+  }
+  html body main section#studio.studio-section #studioBotanicalPanel.studio-panel {
+    border-radius: 20px !important;
+  }
+}
+
+
+/* ==========================================================
+   PLANT CARE / PASSPORT — FINAL HEADING WIDTH FIX
+   Keeps "Every Plant Has a Story." on one complete line
+   and "Discover Yours." on the next line.
+   ========================================================== */
+
+html body main section#plantCare.passport-section {
+  overflow: visible !important;
+}
+
+html body main section#plantCare.passport-section .passport-content {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+html body main section#plantCare.passport-section .passport-content h2 {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin-inline: 0 !important;
+  padding-inline: 0 !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  font-size: clamp(1.45rem, 3.05vw, 2.55rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em !important;
+  word-spacing: normal !important;
+  transform: none !important;
+}
+
+/* At common laptop widths, use a smaller fixed ceiling so the
+   complete first line fits inside the right-hand content column. */
+@media (min-width: 761px) and (max-width: 1200px) {
+  html body main section#plantCare.passport-section .passport-content h2 {
+    font-size: clamp(1.35rem, 2.7vw, 2.1rem) !important;
+    letter-spacing: -0.04em !important;
+  }
+}
+
+/* On narrow screens, allow the title to wrap naturally. */
+@media (max-width: 760px) {
+  html body main section#plantCare.passport-section .passport-content h2 {
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    font-size: clamp(1.55rem, 6vw, 2.1rem) !important;
+  }
+}

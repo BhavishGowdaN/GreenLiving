@@ -1,0 +1,65 @@
+GREEN LIVING — COMPLETE WEBSITE UPDATE
+======================================
+
+IMPLEMENTED
+-----------
+Garden Studio
+- Removed the Cross Section control and the cross-section mode branch.
+- Removed the complete BOTANICAL CLOSE-UP & INTERNAL ANATOMY section, including its photo frame and schematic container.
+- Removed the lower INTERNAL ANATOMY schematic/detail rendering path, its obsolete event handler and the now-unused anatomy3d schematic image assets.
+- Moved selected-part structure, function, process, importance and science information into the existing right-side anatomy panel.
+- Preserved plant selection, anatomy hotspots, Whole Plant, Anatomy Labels, Parts Up Close, Root View, zoom, reset and fullscreen controls.
+- Mapped all ten plant profiles to the bundled transparent specimen cut-outs where available.
+
+My Garden
+- Increased dashboard heading, description, statistics and care text sizes.
+- Added low-opacity botanical specimen decorations behind dashboard content.
+- Kept decorations non-interactive and behind dashboard cards.
+
+Shop
+- Added Gift Plants, Premium Plants, Office Plants and Combo Plants filters.
+- Added four gift products, four premium products, one office pairing and four combo products.
+- Added separate Gift Plants, Premium Plants and Combo Plants sections with headings, descriptions and independent grids in the All Plants view.
+- Added product-specific gift wrap/ribbon/bow treatment to four distinct gift plant photographs.
+- Combo products use two- or three-image product compositions.
+- Preserved existing product IDs 1–8, wishlist/cart handlers, product details modal and category/search state.
+- Removed the generic image substitution on product image errors so unrelated products do not silently show the same fallback photograph.
+- Improved Shop heading contrast, filter sizing, spacing, hover and active states, and responsive grids.
+
+FILES MODIFIED
+--------------
+- index.html
+- app.js
+- plantAnatomy.js
+- premium.css
+
+FILES PRESERVED
+---------------
+- styles.css and plant3d.js were retained.
+- Existing logo, font and plant 3D model assets were retained; unused anatomy3d schematic assets were removed.
+- Four specimen PNG assets from the latest partial project archive were merged into the complete project; the complete project already contained six other specimen PNG assets.
+
+TEST RESULTS
+------------
+Passed:
+- node --check app.js
+- node --check plantAnatomy.js
+- node --input-type=module --check < plant3d.js
+- HTML parser check
+- CSS brace-balance check for styles.css and premium.css
+- Local specimen image mapping check: all ten mapped PNG paths exist.
+- PNG inspection: all ten specimen files are RGBA images with alpha transparency.
+- Product data check: 21 products, 21 unique IDs and names; 4 Gift Plants, 4 Premium Plants, 4 Combo Plants and 1 Office Plants item.
+- Product filter logic test: All (21), Gift Plants (4), Premium Plants (4), Combo Plants (4), Office Plants (1), Succulent (2).
+- Add-to-cart function logic test: adds a new product and increments quantity on a repeat add.
+- Garden Studio markup check: Cross Section control and both removed anatomy section containers are absent.
+
+NOT VERIFIED IN A LIVE BROWSER
+------------------------------
+- A browser interaction/visual test could not be completed in this execution environment; Chromium navigation was blocked by the environment. No claim is made that live browser console testing or desktop/mobile screenshot testing passed.
+- The supplied project archive does not contain the six Home hero video files, four Garden Studio space video files, or assets/potted_plant_04_realistic.glb referenced by the pre-existing code. These were not created or substituted as part of this update.
+- package.json does not define a build script or a real test suite; its existing npm test command is only a placeholder that exits with an error. JavaScript syntax and targeted logic checks were run directly instead.
+
+RUN
+---
+Open the project folder in VS Code and use Live Server to run index.html. Remote fonts and product photographs, and the existing Three.js CDN imports, require internet access.

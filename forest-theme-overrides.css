@@ -1,0 +1,2224 @@
+/* ============================================================================
+   GREEN LIVING — FOREST THEME VISUAL OVERRIDES
+   ----------------------------------------------------------------------------
+   Loaded AFTER styles.css, premium.css and botanical-theme.css so this file
+   is the single visual authority for the forest look.
+
+   VISUAL PROPERTIES ONLY:
+     background / transparency / color / border / shadow / text visibility.
+   No layout, structure, content, markup or JavaScript changes.
+   Reference: one continuous dark tropical forest background, ivory + botanical
+   gold typography, subtle translucent dark-green surfaces.
+   ========================================================================== */
+
+:root {
+  --forest-ink: #061A10;
+  --forest-deep: #092316;
+  --forest-dark: #0B281A;
+  --forest-green: #143D28;
+  --forest-panel: rgba(5, 31, 19, .46);
+  --forest-panel-soft: rgba(5, 31, 19, .26);
+  --forest-panel-strong: rgba(3, 20, 12, .74);
+  --forest-line: rgba(201, 169, 105, .24);
+  --forest-line-soft: rgba(201, 169, 105, .14);
+  --warm-ivory: #F5F0DF;
+  --soft-ivory: #E9E5D6;
+  --botanical-gold: #C9AD69;
+  --sage-green: #A9C47B;
+  --forest-muted: rgba(233, 229, 214, .74);
+  --forest-err-bg: rgba(122, 44, 34, .38);
+  --forest-err-text: #FFD9D0;
+}
+
+/* ===========================================================================
+   1. ONE GLOBAL FOREST BACKGROUND (single source of truth)
+   =========================================================================== */
+
+html {
+  background: var(--forest-ink) !important;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  background: transparent !important;
+  color: var(--soft-ivory) !important;
+  font-family: "Poppins", "DM Sans", sans-serif;
+}
+
+/* Fixed realistic tropical forest photograph behind the whole website */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: url("assets/backgrounds/forest-background.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Subtle cinematic treatment: lightly textured centre, darker foliage edges */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(34, 84, 48, .16) 0%, rgba(6, 26, 16, 0) 58%),
+    linear-gradient(180deg, rgba(3, 18, 10, .34) 0%, rgba(3, 18, 10, .24) 42%, rgba(2, 14, 8, .46) 100%),
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 52%, rgba(1, 12, 7, .40) 100%);
+}
+
+/* Dark fallback under the hero video (video itself is untouched) */
+html body section#home.hero,
+html body:not(.dark-mode) section#home.hero,
+html body.dark-mode section#home.hero {
+  background-color: var(--forest-ink) !important;
+  background-image: none !important;
+}
+
+/* ===========================================================================
+   2. EVERY SECTION TRANSPARENT — forest stays continuous while scrolling
+   =========================================================================== */
+
+html body main > section,
+html body:not(.dark-mode) main > section,
+html body.dark-mode main > section,
+html body main > section.section-padding,
+html body:not(.dark-mode) main > section.section-padding,
+html body.dark-mode main > section.section-padding,
+html body:not(.dark-mode) main > section.intro.section-padding,
+html body.dark-mode main > section.intro.section-padding,
+html body:not(.dark-mode) main > section#studio.studio-section.section-padding,
+html body.dark-mode main > section#studio.studio-section.section-padding,
+html body:not(.dark-mode) main > section#dashboard.dashboard-section.section-padding,
+html body.dark-mode main > section#dashboard.dashboard-section.section-padding,
+html body:not(.dark-mode) main > section#shop.shop-section.section-padding,
+html body.dark-mode main > section#shop.shop-section.section-padding,
+html body:not(.dark-mode) main > section#customize.customizer-section.section-padding,
+html body.dark-mode main > section#customize.customizer-section.section-padding,
+html body:not(.dark-mode) main > section#plantCare.passport-section.section-padding,
+html body.dark-mode main > section#plantCare.passport-section.section-padding,
+html body:not(.dark-mode) main > section.passport-section.section-padding,
+html body.dark-mode main > section.passport-section.section-padding,
+html body:not(.dark-mode) main > section.why-green-living-section.section-padding,
+html body.dark-mode main > section.why-green-living-section.section-padding,
+html body main > section.intro.section-padding,
+html body main > section.why-green-living-section.section-padding {
+  background-color: transparent !important;
+  background-image: none !important;
+  background-attachment: scroll !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Studio photographic backdrop layers stay hidden behind the shared forest */
+html body section#studio .studio-backdrop-photo,
+html body section#studio .studio-backdrop-overlay,
+html body section#studio .botanical-process-section,
+html body:not(.dark-mode) section#studio.studio-section .botanical-process-section,
+html body.dark-mode section#studio.studio-section .botanical-process-section {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* ===========================================================================
+   3. GLOBAL TYPOGRAPHY COLORS (ivory / gold / sage over the forest)
+   =========================================================================== */
+
+html body:not(.dark-mode) main > section:not(.hero) h1,
+html body:not(.dark-mode) main > section:not(.hero) h2,
+html body:not(.dark-mode) main > section:not(.hero) h3,
+html body:not(.dark-mode) main > section:not(.hero) h4,
+html body:not(.dark-mode) main > section:not(.hero) strong,
+html body.dark-mode main > section:not(.hero) h1,
+html body.dark-mode main > section:not(.hero) h2,
+html body.dark-mode main > section:not(.hero) h3,
+html body.dark-mode main > section:not(.hero) h4,
+html body.dark-mode main > section:not(.hero) strong,
+html body main > section:not(.hero) h1,
+html body main > section:not(.hero) h2,
+html body main > section:not(.hero) h3,
+html body main > section:not(.hero) h4,
+html body main > section:not(.hero) strong {
+  color: var(--warm-ivory) !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, .30);
+}
+
+html body:not(.dark-mode) main > section:not(.hero) h1 em,
+html body:not(.dark-mode) main > section:not(.hero) h2 em,
+html body:not(.dark-mode) main > section:not(.hero) h3 em,
+html body.dark-mode main > section:not(.hero) h1 em,
+html body.dark-mode main > section:not(.hero) h2 em,
+html body.dark-mode main > section:not(.hero) h3 em,
+html body main > section:not(.hero) h1 em,
+html body main > section:not(.hero) h2 em,
+html body main > section:not(.hero) h3 em {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main > section:not(.hero) p,
+html body:not(.dark-mode) main > section:not(.hero) li,
+html body:not(.dark-mode) main > section:not(.hero) label,
+html body:not(.dark-mode) main > section:not(.hero) small,
+html body:not(.dark-mode) main > section:not(.hero) dt,
+html body:not(.dark-mode) main > section:not(.hero) dd,
+html body:not(.dark-mode) main > section:not(.hero) td,
+html body:not(.dark-mode) main > section:not(.hero) th,
+html body:not(.dark-mode) main > section:not(.hero) span,
+html body:not(.dark-mode) main > section:not(.hero) .muted,
+html body.dark-mode main > section:not(.hero) p,
+html body.dark-mode main > section:not(.hero) li,
+html body.dark-mode main > section:not(.hero) label,
+html body.dark-mode main > section:not(.hero) small,
+html body.dark-mode main > section:not(.hero) dt,
+html body.dark-mode main > section:not(.hero) dd,
+html body.dark-mode main > section:not(.hero) td,
+html body.dark-mode main > section:not(.hero) th,
+html body.dark-mode main > section:not(.hero) span,
+html body.dark-mode main > section:not(.hero) .muted,
+html body main > section:not(.hero) p,
+html body main > section:not(.hero) li,
+html body main > section:not(.hero) label,
+html body main > section:not(.hero) small,
+html body main > section:not(.hero) dt,
+html body main > section:not(.hero) dd,
+html body main > section:not(.hero) td,
+html body main > section:not(.hero) th,
+html body main > section:not(.hero) span,
+html body main > section:not(.hero) .muted {
+  color: var(--soft-ivory) !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .22);
+}
+
+html body:not(.dark-mode) main > section:not(.hero) .eyebrow,
+html body:not(.dark-mode) main > section:not(.hero) .card-label,
+html body:not(.dark-mode) main > section:not(.hero) .anatomy-head-label,
+html body:not(.dark-mode) main > section:not(.hero) .botanical-kicker,
+html body.dark-mode main > section:not(.hero) .eyebrow,
+html body.dark-mode main > section:not(.hero) .card-label,
+html body.dark-mode main > section:not(.hero) .anatomy-head-label,
+html body.dark-mode main > section:not(.hero) .botanical-kicker,
+html body main > section:not(.hero) .eyebrow,
+html body main > section:not(.hero) .card-label,
+html body main > section:not(.hero) .anatomy-head-label,
+html body main > section:not(.hero) .botanical-kicker,
+html body:not(.dark-mode) .eyebrow,
+html body.dark-mode .eyebrow {
+  color: var(--botanical-gold) !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .30);
+}
+
+/* ===========================================================================
+   4. NAVIGATION — deep forest bar, warm ivory links, gold/ivory active pill
+   =========================================================================== */
+
+html body:not(.dark-mode) header.navbar,
+html body:not(.dark-mode) header.navbar.scrolled,
+html body.dark-mode header.navbar,
+html body.dark-mode header.navbar.scrolled,
+html body header.navbar,
+html body header.navbar.scrolled {
+  background: linear-gradient(90deg, rgba(4, 22, 13, .97), rgba(11, 40, 26, .95), rgba(4, 22, 13, .97)) !important;
+  border-bottom: 1px solid var(--forest-line) !important;
+  box-shadow: 0 10px 30px rgba(2, 12, 7, .28) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+html body:not(.dark-mode) header.navbar a.logo,
+html body:not(.dark-mode) header.navbar .logo-word,
+html body:not(.dark-mode) header.navbar .logo-word span,
+html body.dark-mode header.navbar a.logo,
+html body.dark-mode header.navbar .logo-word,
+html body.dark-mode header.navbar .logo-word span,
+html body header.navbar a.logo,
+html body header.navbar .logo-word,
+html body header.navbar .logo-word span {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) header.navbar .nav-links a,
+html body.dark-mode header.navbar .nav-links a,
+html body header.navbar .nav-links a {
+  color: rgba(245, 240, 223, .90) !important;
+  text-shadow: none !important;
+}
+
+/* Active item = soft ivory pill (inline padding keeps layout identical) */
+html body:not(.dark-mode) header.navbar .nav-links a.active,
+html body:not(.dark-mode) header.navbar .nav-links a:hover,
+html body.dark-mode header.navbar .nav-links a.active,
+html body.dark-mode header.navbar .nav-links a:hover,
+html body header.navbar .nav-links a.active {
+  background: var(--warm-ivory) !important;
+  color: var(--forest-dark) !important;
+  padding: 6px 15px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 6px 18px rgba(2, 12, 7, .28) !important;
+}
+
+html body:not(.dark-mode) header.navbar .nav-links a.active::after,
+html body.dark-mode header.navbar .nav-links a.active::after,
+html body header.navbar .nav-links a.active::after {
+  background: rgba(11, 40, 26, .45) !important;
+}
+
+html body:not(.dark-mode) header.navbar .nav-search-box,
+html body.dark-mode header.navbar .nav-search-box,
+html body header.navbar .nav-search-box {
+  background: rgba(3, 20, 12, .55) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body:not(.dark-mode) header.navbar .nav-search-box input,
+html body.dark-mode header.navbar .nav-search-box input,
+html body header.navbar .nav-search-box input {
+  background: transparent !important;
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) header.navbar .nav-search-box input::placeholder,
+html body.dark-mode header.navbar .nav-search-box input::placeholder,
+html body header.navbar .nav-search-box input::placeholder {
+  color: rgba(233, 229, 214, .62) !important;
+}
+
+html body:not(.dark-mode) header.navbar .icon-btn,
+html body:not(.dark-mode) header.navbar .menu-toggle,
+html body.dark-mode header.navbar .icon-btn,
+html body.dark-mode header.navbar .menu-toggle,
+html body header.navbar .icon-btn,
+html body header.navbar .menu-toggle {
+  color: var(--warm-ivory) !important;
+  background: rgba(11, 40, 26, .45) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+  border-radius: 10px !important;
+}
+
+html body:not(.dark-mode) header.navbar .cart-button span,
+html body.dark-mode header.navbar .cart-button span,
+html body header.navbar .cart-button span {
+  background: var(--botanical-gold) !important;
+  color: var(--forest-dark) !important;
+}
+
+/* ===========================================================================
+   5. BUTTONS (global) — green primary, ivory secondary, gold accents
+   =========================================================================== */
+
+html body .btn,
+html body button.btn {
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+html body:not(.dark-mode) .btn-dark,
+html body:not(.dark-mode) button.btn-dark,
+html body.dark-mode .btn-dark,
+html body.dark-mode button.btn-dark,
+html body .btn-dark,
+html body .custom-generate-btn,
+html body #checkoutButton,
+html body .checkout-form button[type="submit"] {
+  background: linear-gradient(135deg, #1C6B40, #14472C) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid rgba(201, 169, 105, .40) !important;
+  box-shadow: 0 10px 26px rgba(2, 14, 8, .30) !important;
+}
+
+html body:not(.dark-mode) .btn-light,
+html body:not(.dark-mode) button.btn-light,
+html body.dark-mode .btn-light,
+html body.dark-mode button.btn-light,
+html body .btn-light,
+html body .custom-buy-btn {
+  background: var(--warm-ivory) !important;
+  color: var(--forest-dark) !important;
+  border: 1px solid var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) .btn-outline,
+html body.dark-mode .btn-outline,
+html body .btn-outline,
+html body .btn-outline-dark {
+  background: rgba(5, 31, 19, .40) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid rgba(201, 169, 105, .45) !important;
+}
+
+/* ===========================================================================
+   6. HOME INTRO + WHY GREEN LIVING (text directly on the forest, no cards)
+   =========================================================================== */
+
+html body:not(.dark-mode) main > section.intro.section-padding h1,
+html body:not(.dark-mode) main > section.intro.section-padding h2,
+html body:not(.dark-mode) main > section.intro.section-padding h3,
+html body.dark-mode main > section.intro.section-padding h1,
+html body.dark-mode main > section.intro.section-padding h2,
+html body.dark-mode main > section.intro.section-padding h3,
+html body main > section.intro.section-padding h1,
+html body main > section.intro.section-padding h2,
+html body main > section.intro.section-padding h3 {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) main > section.intro.section-padding p,
+html body.dark-mode main > section.intro.section-padding p,
+html body main > section.intro.section-padding p {
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) .why-green-living-section .why-green-heading .eyebrow,
+html body.dark-mode .why-green-living-section .why-green-heading .eyebrow,
+html body .why-green-living-section .why-green-heading .eyebrow {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) .why-green-living-section .why-green-heading h2,
+html body.dark-mode .why-green-living-section .why-green-heading h2,
+html body .why-green-living-section .why-green-heading h2 {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) .why-green-living-section .why-green-heading > p,
+html body.dark-mode .why-green-living-section .why-green-heading > p,
+html body .why-green-living-section .why-green-heading > p {
+  color: var(--soft-ivory) !important;
+}
+
+/* Three feature blocks sit directly on the forest: no card surfaces */
+html body:not(.dark-mode) .why-green-living-section .why-green-card,
+html body.dark-mode .why-green-living-section .why-green-card,
+html body .why-green-living-section .why-green-card {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body:not(.dark-mode) .why-green-living-section .why-green-card h3,
+html body.dark-mode .why-green-living-section .why-green-card h3,
+html body .why-green-living-section .why-green-card h3 {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) .why-green-living-section .why-green-card p,
+html body.dark-mode .why-green-living-section .why-green-card p,
+html body .why-green-living-section .why-green-card p {
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) .why-green-living-section .why-green-icon,
+html body.dark-mode .why-green-living-section .why-green-icon,
+html body .why-green-living-section .why-green-icon {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ===========================================================================
+   7. GARDEN STUDIO + PLANT ANATOMY
+   =========================================================================== */
+
+html body:not(.dark-mode) main section#studio .studio-intro,
+html body.dark-mode main section#studio .studio-intro,
+html body:not(.dark-mode) section#studio.studio-section div.studio-intro,
+html body.dark-mode section#studio.studio-section div.studio-intro,
+html body main section#studio .studio-intro {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body:not(.dark-mode) main section#studio .studio-intro .eyebrow,
+html body.dark-mode main section#studio .studio-intro .eyebrow,
+html body main section#studio .studio-intro .eyebrow {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main section#studio .studio-intro h2,
+html body:not(.dark-mode) main section#studio .studio-intro .studio-heading,
+html body.dark-mode main section#studio .studio-intro h2,
+html body.dark-mode main section#studio .studio-intro .studio-heading,
+html body main section#studio .studio-intro h2,
+html body main section#studio .studio-intro .studio-heading {
+  color: var(--warm-ivory) !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .35) !important;
+}
+
+html body:not(.dark-mode) main section#studio .studio-intro h2 em,
+html body:not(.dark-mode) main section#studio .studio-intro .studio-heading em,
+html body.dark-mode main section#studio .studio-intro h2 em,
+html body.dark-mode main section#studio .studio-intro .studio-heading em,
+html body main section#studio .studio-intro h2 em,
+html body main section#studio .studio-intro .studio-heading em {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main section#studio .studio-intro .studio-lead,
+html body:not(.dark-mode) main section#studio .studio-intro .studio-support,
+html body:not(.dark-mode) main section#studio .studio-intro p,
+html body.dark-mode main section#studio .studio-intro .studio-lead,
+html body.dark-mode main section#studio .studio-intro .studio-support,
+html body.dark-mode main section#studio .studio-intro p,
+html body main section#studio .studio-intro .studio-lead,
+html body main section#studio .studio-intro .studio-support,
+html body main section#studio .studio-intro p {
+  color: var(--soft-ivory) !important;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, .28) !important;
+}
+
+/* Studio panel + anatomy surfaces: subtle translucent forest glass only */
+html body:not(.dark-mode) main section#studio .studio-panel,
+html body:not(.dark-mode) main section#studio .anatomy-viewer,
+html body:not(.dark-mode) main section#studio .anatomy-card,
+html body:not(.dark-mode) main section#studio .anatomy-plant-card,
+html body:not(.dark-mode) main section#studio .anatomy-side-card,
+html body:not(.dark-mode) main section#studio .anatomy-stage,
+html body:not(.dark-mode) main section#studio .botanical-photo-stage,
+html body:not(.dark-mode) main section#studio .botanical-detail-below,
+html body.dark-mode main section#studio .studio-panel,
+html body.dark-mode main section#studio .anatomy-viewer,
+html body.dark-mode main section#studio .anatomy-card,
+html body.dark-mode main section#studio .anatomy-plant-card,
+html body.dark-mode main section#studio .anatomy-side-card,
+html body.dark-mode main section#studio .anatomy-stage,
+html body.dark-mode main section#studio .botanical-photo-stage,
+html body.dark-mode main section#studio .botanical-detail-below,
+html body main section#studio .studio-panel,
+html body main section#studio .anatomy-viewer,
+html body main section#studio .anatomy-card,
+html body main section#studio .anatomy-plant-card,
+html body main section#studio .anatomy-side-card,
+html body main section#studio .anatomy-stage,
+html body main section#studio .botanical-photo-stage,
+html body main section#studio .botanical-detail-below {
+  background: var(--forest-panel) !important;
+  background-image: none !important;
+  border: 1px solid var(--forest-line-soft) !important;
+  box-shadow: 0 14px 34px rgba(2, 12, 7, .22) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-timeline-step,
+html body.dark-mode main section#studio .botanical-timeline-step,
+html body main section#studio .botanical-timeline-step,
+html body:not(.dark-mode) main section#studio .botanical-process-actions button,
+html body.dark-mode main section#studio .botanical-process-actions button,
+html body main section#studio .botanical-process-actions button {
+  background: var(--forest-panel-soft) !important;
+  background-image: none !important;
+  color: var(--soft-ivory) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-timeline-step.active,
+html body.dark-mode main section#studio .botanical-timeline-step.active,
+html body main section#studio .botanical-timeline-step.active {
+  border-color: var(--botanical-gold) !important;
+  color: var(--botanical-gold) !important;
+}
+
+/* Plant selector chips: transparent-dark pills, thumbnails kept, gold active */
+html body:not(.dark-mode) main section#studio .botanical-plant-chip,
+html body.dark-mode main section#studio .botanical-plant-chip,
+html body main section#studio .botanical-plant-chip {
+  background: rgba(4, 26, 15, .48) !important;
+  background-image: none !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-plant-chip span,
+html body.dark-mode main section#studio .botanical-plant-chip span,
+html body main section#studio .botanical-plant-chip span {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-plant-chip.active,
+html body.dark-mode main section#studio .botanical-plant-chip.active,
+html body main section#studio .botanical-plant-chip.active {
+  background: rgba(201, 169, 105, .18) !important;
+  border-color: var(--botanical-gold) !important;
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-plant-chip.active span,
+html body.dark-mode main section#studio .botanical-plant-chip.active span,
+html body main section#studio .botanical-plant-chip.active span {
+  color: var(--botanical-gold) !important;
+}
+
+/* Mode tabs + zoom tools */
+html body:not(.dark-mode) main section#studio .studio-tool,
+html body.dark-mode main section#studio .studio-tool,
+html body main section#studio .studio-tool {
+  background: rgba(4, 26, 15, .52) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body:not(.dark-mode) main section#studio .studio-tool.active,
+html body.dark-mode main section#studio .studio-tool.active,
+html body main section#studio .studio-tool.active,
+html body:not(.dark-mode) main section#studio .anatomy-mode.active,
+html body.dark-mode main section#studio .anatomy-mode.active,
+html body main section#studio .anatomy-mode.active {
+  background: var(--botanical-gold) !important;
+  color: var(--forest-dark) !important;
+  border-color: var(--botanical-gold) !important;
+}
+
+/* Search + category controls inside the studio */
+html body:not(.dark-mode) main section#studio .botanical-search-wrap,
+html body.dark-mode main section#studio .botanical-search-wrap,
+html body main section#studio .botanical-search-wrap,
+html body:not(.dark-mode) main section#studio #botanicalPlantCategory,
+html body.dark-mode main section#studio #botanicalPlantCategory,
+html body main section#studio #botanicalPlantCategory {
+  background: rgba(4, 26, 15, .52) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line) !important;
+}
+
+/* Profile card (PLANT PROFILE) */
+html body:not(.dark-mode) main section#studio .botanical-kicker,
+html body.dark-mode main section#studio .botanical-kicker,
+html body main section#studio .botanical-kicker,
+html body:not(.dark-mode) main section#studio .botanical-panel-heading span,
+html body.dark-mode main section#studio .botanical-panel-heading span,
+html body main section#studio .botanical-panel-heading span {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-latin,
+html body.dark-mode main section#studio .botanical-latin,
+html body main section#studio .botanical-latin {
+  color: var(--sage-green) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-description,
+html body.dark-mode main section#studio .botanical-description,
+html body main section#studio .botanical-description,
+html body:not(.dark-mode) main section#studio .botanical-part-item small,
+html body.dark-mode main section#studio .botanical-part-item small,
+html body main section#studio .botanical-part-item small,
+html body:not(.dark-mode) main section#studio .anatomy-help,
+html body.dark-mode main section#studio .anatomy-help,
+html body main section#studio .anatomy-help,
+html body:not(.dark-mode) main section#studio .botanical-stage-help,
+html body.dark-mode main section#studio .botanical-stage-help,
+html body main section#studio .botanical-stage-help {
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-care-grid span,
+html body.dark-mode main section#studio .botanical-care-grid span,
+html body main section#studio .botanical-care-grid span,
+html body:not(.dark-mode) main section#studio .botanical-selected-explanation section > span,
+html body.dark-mode main section#studio .botanical-selected-explanation section > span,
+html body main section#studio .botanical-selected-explanation section > span {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-care-grid strong,
+html body.dark-mode main section#studio .botanical-care-grid strong,
+html body main section#studio .botanical-care-grid strong {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-explore,
+html body.dark-mode main section#studio .botanical-explore,
+html body main section#studio .botanical-explore {
+  background: rgba(5, 31, 19, .60) !important;
+  color: var(--botanical-gold) !important;
+  border: 1px solid rgba(201, 169, 105, .45) !important;
+}
+
+/* Discover-the-structure part list */
+html body:not(.dark-mode) main section#studio .botanical-part-item,
+html body.dark-mode main section#studio .botanical-part-item,
+html body main section#studio .botanical-part-item {
+  background: rgba(4, 26, 15, .40) !important;
+  background-image: none !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-part-item strong,
+html body.dark-mode main section#studio .botanical-part-item strong,
+html body main section#studio .botanical-part-item strong {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-part-item.active,
+html body.dark-mode main section#studio .botanical-part-item.active,
+html body main section#studio .botanical-part-item.active {
+  background: rgba(201, 169, 105, .16) !important;
+  border-color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-panel-heading strong,
+html body.dark-mode main section#studio .botanical-panel-heading strong,
+html body main section#studio .botanical-panel-heading strong {
+  color: var(--warm-ivory) !important;
+}
+
+/* Anatomy hotspots: dark green label pills with gold detail */
+html body:not(.dark-mode) main section#studio .botanical-hotspot b,
+html body.dark-mode main section#studio .botanical-hotspot b,
+html body main section#studio .botanical-hotspot b {
+  background: rgba(4, 26, 15, .88) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid rgba(201, 169, 105, .45) !important;
+  text-shadow: none !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-hotspot .botanical-hotspot-line,
+html body.dark-mode main section#studio .botanical-hotspot .botanical-hotspot-line,
+html body main section#studio .botanical-hotspot .botanical-hotspot-line {
+  background: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-hotspot .botanical-hotspot-dot,
+html body.dark-mode main section#studio .botanical-hotspot .botanical-hotspot-dot,
+html body main section#studio .botanical-hotspot .botanical-hotspot-dot {
+  background: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-hotspot.active b,
+html body.dark-mode main section#studio .botanical-hotspot.active b,
+html body main section#studio .botanical-hotspot.active b {
+  background: var(--botanical-gold) !important;
+  color: var(--forest-dark) !important;
+}
+
+/* Field-study caption over the photograph */
+html body:not(.dark-mode) main section#studio .botanical-photo-overlay span,
+html body.dark-mode main section#studio .botanical-photo-overlay span,
+html body main section#studio .botanical-photo-overlay span {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-photo-overlay strong,
+html body.dark-mode main section#studio .botanical-photo-overlay strong,
+html body main section#studio .botanical-photo-overlay strong {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#studio .studio-preview-label,
+html body:not(.dark-mode) main section#studio .botanical-live-label,
+html body.dark-mode main section#studio .studio-preview-label,
+html body.dark-mode main section#studio .botanical-live-label,
+html body main section#studio .studio-preview-label,
+html body main section#studio .botanical-live-label {
+  color: var(--botanical-gold) !important;
+}
+
+/* Selected-structure explanation + science fact */
+html body:not(.dark-mode) main section#studio .botanical-selected-explanation h3,
+html body.dark-mode main section#studio .botanical-selected-explanation h3,
+html body main section#studio .botanical-selected-explanation h3 {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-explanation-latin,
+html body.dark-mode main section#studio .botanical-explanation-latin,
+html body main section#studio .botanical-explanation-latin {
+  color: var(--sage-green) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-selected-explanation p,
+html body.dark-mode main section#studio .botanical-selected-explanation p,
+html body main section#studio .botanical-selected-explanation p,
+html body:not(.dark-mode) main section#studio .botanical-selected-explanation li,
+html body.dark-mode main section#studio .botanical-selected-explanation li,
+html body main section#studio .botanical-selected-explanation li {
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#studio .botanical-science-fact,
+html body.dark-mode main section#studio .botanical-science-fact,
+html body main section#studio .botanical-science-fact {
+  background: rgba(4, 26, 15, .38) !important;
+  border-color: var(--forest-line-soft) !important;
+}
+
+/* ===========================================================================
+   8. MY GARDEN DASHBOARD
+   =========================================================================== */
+
+html body:not(.dark-mode) main section#dashboard .section-heading,
+html body.dark-mode main section#dashboard .section-heading,
+html body:not(.dark-mode) section#dashboard.dashboard-section div.section-heading,
+html body.dark-mode section#dashboard.dashboard-section div.section-heading,
+html body main section#dashboard .section-heading {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body:not(.dark-mode) main section#dashboard .section-heading h2,
+html body:not(.dark-mode) section#dashboard.dashboard-section div.section-heading h2,
+html body.dark-mode main section#dashboard .section-heading h2,
+html body.dark-mode section#dashboard.dashboard-section div.section-heading h2,
+html body main section#dashboard .section-heading h2,
+html body #dashboard .section-heading h2 {
+  color: var(--botanical-gold) !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .38) !important;
+}
+
+html body:not(.dark-mode) main section#dashboard .section-heading .eyebrow,
+html body.dark-mode main section#dashboard .section-heading .eyebrow,
+html body main section#dashboard .section-heading .eyebrow,
+html body #dashboard .section-heading .eyebrow {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main section#dashboard .section-heading > p,
+html body.dark-mode main section#dashboard .section-heading > p,
+html body main section#dashboard .section-heading > p,
+html body #dashboard .section-heading > p {
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#dashboard .gd-data-note,
+html body.dark-mode main section#dashboard .gd-data-note,
+html body main section#dashboard .gd-data-note {
+  color: var(--forest-muted) !important;
+  background: rgba(4, 26, 15, .30) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+  border-radius: 12px !important;
+}
+
+/* Dashboard heading area / topbar: transparent or very subtle forest glass */
+html body:not(.dark-mode) main section#dashboard .gd-topbar,
+html body.dark-mode main section#dashboard .gd-topbar,
+html body:not(.dark-mode) html body:not(.dark-mode) #dashboard .gd-topbar,
+html body main section#dashboard .gd-topbar,
+html body #dashboard .gd-topbar {
+  background: var(--forest-panel-soft) !important;
+  background-image: none !important;
+  border: 1px solid var(--forest-line-soft) !important;
+  color: var(--warm-ivory) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+}
+
+html body:not(.dark-mode) #dashboard .gd-stat,
+html body.dark-mode #dashboard .gd-stat,
+html body:not(.dark-mode) #dashboard .gd-panel,
+html body.dark-mode #dashboard .gd-panel,
+html body:not(.dark-mode) main section#dashboard .gd-stat,
+html body.dark-mode main section#dashboard .gd-stat,
+html body:not(.dark-mode) main section#dashboard .gd-panel,
+html body.dark-mode main section#dashboard .gd-panel,
+html body main section#dashboard .gd-stat,
+html body main section#dashboard .gd-panel {
+  background: var(--forest-panel) !important;
+  background-image: none !important;
+  border: 1px solid var(--forest-line-soft) !important;
+  color: var(--soft-ivory) !important;
+  box-shadow: 0 12px 30px rgba(2, 12, 7, .20) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+}
+
+html body:not(.dark-mode) #dashboard .gd-topbar-copy h3,
+html body:not(.dark-mode) #dashboard .gd-panel-head h3,
+html body:not(.dark-mode) #dashboard .gd-stat-value,
+html body:not(.dark-mode) #dashboard .gd-stat-body strong,
+html body:not(.dark-mode) #dashboard .gd-stat-body p,
+html body:not(.dark-mode) #dashboard .gd-order-summary strong,
+html body.dark-mode #dashboard .gd-topbar-copy h3,
+html body.dark-mode #dashboard .gd-panel-head h3,
+html body.dark-mode #dashboard .gd-stat-value,
+html body.dark-mode #dashboard .gd-stat-body strong,
+html body.dark-mode #dashboard .gd-stat-body p,
+html body.dark-mode #dashboard .gd-order-summary strong,
+html body main section#dashboard .gd-topbar-copy h3,
+html body main section#dashboard .gd-panel-head h3,
+html body main section#dashboard .gd-stat-value,
+html body main section#dashboard .gd-stat-body strong,
+html body main section#dashboard .gd-order-summary strong {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) #dashboard .gd-kicker,
+html body:not(.dark-mode) #dashboard .gd-panel-kicker,
+html body:not(.dark-mode) #dashboard .gd-panel-tag,
+html body:not(.dark-mode) #dashboard .gd-stat-label,
+html body.dark-mode #dashboard .gd-kicker,
+html body.dark-mode #dashboard .gd-panel-kicker,
+html body.dark-mode #dashboard .gd-panel-tag,
+html body.dark-mode #dashboard .gd-stat-label,
+html body main section#dashboard .gd-kicker,
+html body main section#dashboard .gd-panel-kicker,
+html body main section#dashboard .gd-panel-tag,
+html body main section#dashboard .gd-stat-label {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) #dashboard .gd-topbar-copy p,
+html body:not(.dark-mode) #dashboard .gd-stat-body small,
+html body:not(.dark-mode) #dashboard .gd-stat-body p,
+html body:not(.dark-mode) #dashboard .gd-order-summary span,
+html body:not(.dark-mode) #dashboard .gd-legend,
+html body:not(.dark-mode) #dashboard .gd-plant-list,
+html body:not(.dark-mode) #dashboard .gd-rank-list,
+html body:not(.dark-mode) #dashboard .gd-order-list,
+html body:not(.dark-mode) #dashboard .gd-customer-list,
+html body.dark-mode #dashboard .gd-topbar-copy p,
+html body.dark-mode #dashboard .gd-stat-body small,
+html body.dark-mode #dashboard .gd-stat-body p,
+html body.dark-mode #dashboard .gd-order-summary span,
+html body.dark-mode #dashboard .gd-legend,
+html body.dark-mode #dashboard .gd-plant-list,
+html body.dark-mode #dashboard .gd-rank-list,
+html body.dark-mode #dashboard .gd-order-list,
+html body.dark-mode #dashboard .gd-customer-list,
+html body main section#dashboard .gd-topbar-copy p,
+html body main section#dashboard .gd-stat-body small,
+html body main section#dashboard .gd-order-summary span,
+html body main section#dashboard .gd-plant-list,
+html body main section#dashboard .gd-rank-list,
+html body main section#dashboard .gd-order-list,
+html body main section#dashboard .gd-customer-list {
+  color: var(--soft-ivory) !important;
+}
+
+/* Topbar chips + buttons */
+html body:not(.dark-mode) #dashboard .gd-live-chip,
+html body.dark-mode #dashboard .gd-live-chip,
+html body main section#dashboard .gd-live-chip {
+  background: rgba(5, 31, 19, .55) !important;
+  color: var(--sage-green) !important;
+  border: 1px solid rgba(169, 196, 123, .35) !important;
+}
+
+html body:not(.dark-mode) #dashboard .gd-refresh-btn,
+html body.dark-mode #dashboard .gd-refresh-btn,
+html body:not(.dark-mode) #dashboard .gd-filter-btn,
+html body.dark-mode #dashboard .gd-filter-btn,
+html body main section#dashboard .gd-refresh-btn,
+html body main section#dashboard .gd-filter-btn {
+  background: rgba(4, 26, 15, .55) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line) !important;
+}
+
+/* ===========================================================================
+   9. SHOP + PRODUCT MODAL
+   =========================================================================== */
+
+html body:not(.dark-mode) main section#shop .shop-hero,
+html body.dark-mode main section#shop .shop-hero,
+html body:not(.dark-mode) section#shop.shop-section div.shop-hero,
+html body.dark-mode section#shop.shop-section div.shop-hero,
+html body main section#shop .shop-hero {
+  background: var(--forest-panel-soft) !important;
+  background-image: none !important;
+  border: 1px solid var(--forest-line-soft) !important;
+  box-shadow: none !important;
+}
+
+html body:not(.dark-mode) section#shop.shop-section div.shop-hero h1,
+html body:not(.dark-mode) section#shop.shop-section div.shop-hero h2,
+html body.dark-mode section#shop.shop-section div.shop-hero h1,
+html body.dark-mode section#shop.shop-section div.shop-hero h2,
+html body main section#shop .shop-hero h1,
+html body main section#shop .shop-hero h2 {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) section#shop.shop-section div.shop-hero .shop-hero-subtitle,
+html body.dark-mode section#shop.shop-section div.shop-hero .shop-hero-subtitle,
+html body main section#shop .shop-hero .shop-hero-subtitle {
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) section#shop.shop-section div.shop-hero .eyebrow,
+html body.dark-mode section#shop.shop-section div.shop-hero .eyebrow,
+html body main section#shop .shop-hero .eyebrow {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) #shop .category-list,
+html body.dark-mode #shop .category-list,
+html body main section#shop .category-list {
+  background: rgba(4, 26, 15, .35) !important;
+  background-image: none !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body:not(.dark-mode) #shop .category-btn,
+html body.dark-mode #shop .category-btn,
+html body main section#shop .category-btn {
+  background: rgba(4, 26, 15, .55) !important;
+  color: var(--soft-ivory) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body:not(.dark-mode) #shop .category-btn.active,
+html body:not(.dark-mode) #shop .category-btn:hover,
+html body.dark-mode #shop .category-btn.active,
+html body.dark-mode #shop .category-btn:hover,
+html body main section#shop .category-btn.active,
+html body main section#shop .category-btn:hover {
+  background: rgba(201, 169, 105, .18) !important;
+  color: var(--botanical-gold) !important;
+  border-color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) #shop .shop-product-section-heading h3,
+html body.dark-mode #shop .shop-product-section-heading h3,
+html body main section#shop .shop-product-section-heading h3 {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) #shop .shop-product-section-heading h3 em,
+html body.dark-mode #shop .shop-product-section-heading h3 em,
+html body main section#shop .shop-product-section-heading h3 em {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) #shop .shop-product-section-heading > p,
+html body.dark-mode #shop .shop-product-section-heading > p,
+html body main section#shop .shop-product-section-heading > p {
+  color: var(--soft-ivory) !important;
+}
+
+/* Product cards: subtle translucent forest surfaces, images stay prominent */
+html body:not(.dark-mode) #shop .product-card,
+html body.dark-mode #shop .product-card,
+html body:not(.dark-mode) #shop .product-info,
+html body.dark-mode #shop .product-info,
+html body main section#shop .product-card,
+html body main section#shop .product-info {
+  background: var(--forest-panel) !important;
+  background-image: none !important;
+  border: 1px solid var(--forest-line-soft) !important;
+  color: var(--soft-ivory) !important;
+  box-shadow: 0 12px 30px rgba(2, 12, 7, .20) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+}
+
+html body:not(.dark-mode) #shop .product-card h3,
+html body:not(.dark-mode) #shop .product-card h2,
+html body.dark-mode #shop .product-card h3,
+html body.dark-mode #shop .product-card h2,
+html body main section#shop .product-card h3,
+html body main section#shop .product-card h2 {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) #shop .product-card p,
+html body.dark-mode #shop .product-card p,
+html body main section#shop .product-card p {
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) #shop .product-card .product-price,
+html body.dark-mode #shop .product-card .product-price,
+html body main section#shop .product-card .product-price {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) #shop #productGrid .product-actions .add-cart-btn,
+html body.dark-mode #shop #productGrid .product-actions .add-cart-btn,
+html body main section#shop #productGrid .product-actions .add-cart-btn {
+  background: linear-gradient(135deg, #1C6B40, #14472C) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid rgba(201, 169, 105, .40) !important;
+}
+
+html body:not(.dark-mode) #shop #productGrid .product-actions .buy-now-btn,
+html body.dark-mode #shop #productGrid .product-actions .buy-now-btn,
+html body main section#shop #productGrid .product-actions .buy-now-btn {
+  background: var(--warm-ivory) !important;
+  color: var(--forest-dark) !important;
+  border: 1px solid var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) #shop #productGrid .wishlist-btn,
+html body.dark-mode #shop #productGrid .wishlist-btn,
+html body main section#shop #productGrid .wishlist-btn {
+  background: rgba(4, 26, 15, .55) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line) !important;
+}
+
+/* Product detail modal */
+html body:not(.dark-mode) .product-modal,
+html body.dark-mode .product-modal,
+html body .product-modal,
+html body:not(.dark-mode) .checkout-modal,
+html body.dark-mode .checkout-modal,
+html body .checkout-modal {
+  background: linear-gradient(160deg, rgba(6, 34, 20, .96), rgba(3, 20, 12, .94)) !important;
+  color: var(--soft-ivory) !important;
+  border: 1px solid var(--forest-line) !important;
+  box-shadow: 0 30px 80px rgba(1, 10, 6, .55) !important;
+}
+
+html body:not(.dark-mode) .modal-backdrop,
+html body.dark-mode .modal-backdrop,
+html body .modal-backdrop {
+  background: rgba(2, 12, 7, .66) !important;
+}
+
+html body .product-modal h2,
+html body .product-modal .modal-price,
+html body .checkout-modal h2 {
+  color: var(--warm-ivory) !important;
+}
+
+html body .product-modal p,
+html body .product-modal small,
+html body .product-modal label,
+html body .checkout-modal p,
+html body .checkout-modal label,
+html body .checkout-modal span,
+html body .checkout-modal .checkout-note {
+  color: var(--soft-ivory) !important;
+}
+
+html body .product-modal .modal-price {
+  color: var(--botanical-gold) !important;
+}
+
+html body .product-modal .plant-details strong {
+  color: var(--warm-ivory) !important;
+}
+
+html body .product-modal .modal-stock-status {
+  color: var(--sage-green) !important;
+}
+
+html body .modal-close {
+  background: rgba(4, 26, 15, .60) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body .product-modal input,
+html body .product-modal select,
+html body .checkout-modal input,
+html body .checkout-modal select,
+html body .checkout-modal textarea {
+  background: rgba(3, 20, 12, .55) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line) !important;
+}
+
+html body .product-modal input::placeholder,
+html body .checkout-modal input::placeholder {
+  color: rgba(233, 229, 214, .55) !important;
+}
+
+html body .checkout-summary,
+html body .checkout-summary-list {
+  background: rgba(4, 26, 15, .40) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body .checkout-breakdown div {
+  border-color: var(--forest-line-soft) !important;
+}
+
+html body .checkout-breakdown strong {
+  color: var(--botanical-gold) !important;
+}
+
+/* ===========================================================================
+   10. CUSTOMIZE — form + Design Summary transparent over the forest
+   =========================================================================== */
+
+html body:not(.dark-mode) main section#customize .customizer-page-heading,
+html body.dark-mode main section#customize .customizer-page-heading,
+html body main section#customize .customizer-page-heading {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+html body:not(.dark-mode) main section#customize .customizer-page-heading h2,
+html body.dark-mode main section#customize .customizer-page-heading h2,
+html body main section#customize .customizer-page-heading h2 {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#customize .customizer-intro,
+html body.dark-mode main section#customize .customizer-intro,
+html body main section#customize .customizer-intro {
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#customize .customizer-form,
+html body.dark-mode main section#customize .customizer-form,
+html body:not(.dark-mode) html body:not(.dark-mode) #customize .customizer-form,
+html body.dark-mode #customize .customizer-form,
+html body main section#customize .customizer-form,
+html body:not(.dark-mode) #customize .customizer-form,
+html body:not(.dark-mode) main section#customize .customizer-design-summary,
+html body.dark-mode main section#customize .customizer-design-summary,
+html body.dark-mode #customize .customizer-design-summary,
+html body main section#customize .customizer-design-summary,
+html body:not(.dark-mode) #customize .customizer-design-summary,
+html body:not(.dark-mode) main section#customize .custom-plant-care-block,
+html body.dark-mode main section#customize .custom-plant-care-block,
+html body main section#customize .custom-plant-care-block,
+html body:not(.dark-mode) #customize .custom-plant-care-block,
+html body:not(.dark-mode) main section#customize .gift-options,
+html body.dark-mode main section#customize .gift-options,
+html body main section#customize .gift-options,
+html body:not(.dark-mode) #customize .gift-options,
+html body:not(.dark-mode) main section#customize .custom-selected-plant,
+html body.dark-mode main section#customize .custom-selected-plant,
+html body main section#customize .custom-selected-plant {
+  background: var(--forest-panel-soft) !important;
+  background-image: none !important;
+  border: 1px solid var(--forest-line-soft) !important;
+  color: var(--soft-ivory) !important;
+  box-shadow: 0 14px 34px rgba(2, 12, 7, .18) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+}
+
+html body main section#customize .customizer-form-title h3,
+html body main section#customize .customizer-design-summary h3,
+html body main section#customize .custom-info-heading h3,
+html body main section#customize .gift-options h4 {
+  color: var(--warm-ivory) !important;
+}
+
+html body main section#customize .customizer-field-grid label,
+html body main section#customize .customizer-form label,
+html body main section#customize .customizer-price-line span,
+html body main section#customize .customizer-price-line small,
+html body main section#customize .customizer-privacy-note,
+html body main section#customize .design-summary-note,
+html body main section#customize .customizer-design-summary dt,
+html body main section#customize .customizer-design-summary dd,
+html body main section#customize .customizer-design-summary p,
+html body main section#customize .customizer-design-summary li {
+  color: var(--soft-ivory) !important;
+}
+
+html body main section#customize .customizer-field-grid label > span,
+html body main section#customize .customizer-form label > span {
+  color: var(--forest-muted) !important;
+}
+
+/* Form fields: dark translucent, ivory text, gold focus */
+html body main section#customize .customizer-field-grid input,
+html body main section#customize .customizer-field-grid select,
+html body main section#customize .customizer-field-grid textarea,
+html body main section#customize .customizer-form input,
+html body main section#customize .customizer-form select,
+html body main section#customize .customizer-form textarea {
+  background: rgba(3, 20, 12, .55) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line) !important;
+}
+
+html body main section#customize .customizer-field-grid input::placeholder,
+html body main section#customize .customizer-field-grid textarea::placeholder {
+  color: rgba(233, 229, 214, .55) !important;
+}
+
+html body main section#customize select option,
+html body main section#customize option {
+  background: #0B281A !important;
+  color: #F5F0DF !important;
+}
+
+html body main section#customize .customizer-field-grid input:focus,
+html body main section#customize .customizer-field-grid select:focus,
+html body main section#customize .customizer-field-grid textarea:focus {
+  border-color: var(--botanical-gold) !important;
+}
+
+/* Estimated total: gold figure */
+html body main section#customize .customizer-price-line {
+  background: rgba(4, 26, 15, .45) !important;
+  border: 1px solid var(--forest-line) !important;
+}
+
+html body main section#customize .customizer-price-line strong,
+html body main section#customize .customizer-price-line div > strong {
+  color: var(--botanical-gold) !important;
+}
+
+/* Design Summary rows: subtle separators, gold estimated total */
+html body main section#customize .customizer-design-summary #customDesignDetails > div {
+  border-bottom: 1px solid var(--forest-line-soft) !important;
+}
+
+html body main section#customize .customizer-design-summary dt {
+  color: var(--forest-muted) !important;
+}
+
+html body main section#customize .customizer-design-summary dd {
+  color: var(--warm-ivory) !important;
+}
+
+html body main section#customize .customizer-design-summary .summary-price strong,
+html body main section#customize .customizer-design-summary #customPlantSummaryTotal {
+  color: var(--botanical-gold) !important;
+}
+
+html body main section#customize .customizer-error {
+  background: var(--forest-err-bg) !important;
+  color: var(--forest-err-text) !important;
+  border: 1px solid rgba(227, 160, 141, .40) !important;
+}
+
+html body main section#customize .pot-text-live-preview,
+html body main section#customize .customizer-summary,
+html body main section#customize .customizer-regenerate {
+  background: rgba(4, 26, 15, .45) !important;
+  color: var(--warm-ivory) !important;
+  border-color: var(--forest-line-soft) !important;
+}
+
+/* ===========================================================================
+   11. PLANT CARE / PLANT PASSPORT
+   =========================================================================== */
+
+html body:not(.dark-mode) main > section.passport-section .passport-content,
+html body.dark-mode main > section.passport-section .passport-content,
+html body:not(.dark-mode) #plantCare .passport-content,
+html body.dark-mode #plantCare .passport-content,
+html body main > section.passport-section .passport-content,
+html body #plantCare .passport-content,
+html body #plantCare.passport-section .passport-content {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body #plantCare .passport-content h2,
+html body main > section.passport-section .passport-content h2 {
+  color: var(--warm-ivory) !important;
+}
+
+html body #plantCare .passport-content h2 em,
+html body main > section.passport-section .passport-content h2 em {
+  color: var(--botanical-gold) !important;
+}
+
+html body #plantCare .passport-content p:not(.eyebrow),
+html body main > section.passport-section .passport-content p:not(.eyebrow) {
+  color: var(--soft-ivory) !important;
+}
+
+html body #plantCare .passport-content .eyebrow,
+html body main > section.passport-section .passport-content .eyebrow {
+  color: var(--botanical-gold) !important;
+}
+
+/* ===========================================================================
+   12. CART DRAWER
+   =========================================================================== */
+
+html body:not(.dark-mode) .cart-drawer,
+html body.dark-mode .cart-drawer,
+html body .cart-drawer {
+  background: linear-gradient(165deg, rgba(5, 30, 18, .94), rgba(3, 18, 10, .92)) !important;
+  color: var(--soft-ivory) !important;
+  border-left: 1px solid var(--forest-line) !important;
+  box-shadow: -24px 0 60px rgba(1, 10, 6, .50) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+html body .cart-drawer h2,
+html body .cart-drawer h3,
+html body .cart-drawer #cartDrawerTitle {
+  color: var(--warm-ivory) !important;
+}
+
+html body .cart-drawer p,
+html body .cart-drawer span,
+html body .cart-drawer .empty-message {
+  color: var(--soft-ivory) !important;
+}
+
+html body .cart-drawer .cart-item {
+  background: rgba(4, 26, 15, .35) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body .cart-drawer .cart-item h4 {
+  color: var(--warm-ivory) !important;
+}
+
+html body .cart-drawer .cart-item p {
+  color: var(--forest-muted) !important;
+}
+
+html body .cart-drawer .cart-custom-detail {
+  color: var(--sage-green) !important;
+}
+
+html body .cart-drawer .quantity-control button {
+  background: rgba(5, 31, 19, .70) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line) !important;
+}
+
+html body .cart-drawer .quantity-control span {
+  color: var(--warm-ivory) !important;
+}
+
+html body .cart-drawer .remove-cart-item {
+  color: #F2B0A4 !important;
+  background: transparent !important;
+  border: 1px solid rgba(242, 176, 164, .35) !important;
+}
+
+html body .cart-drawer .cart-total {
+  border-top: 1px solid var(--forest-line-soft) !important;
+}
+
+html body .cart-drawer .cart-total strong {
+  color: var(--botanical-gold) !important;
+}
+
+html body .cart-drawer #checkoutButton {
+  background: linear-gradient(135deg, #1C6B40, #14472C) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid rgba(201, 169, 105, .40) !important;
+}
+
+/* ===========================================================================
+   13. FOOTER
+   =========================================================================== */
+
+html body:not(.dark-mode) footer.footer,
+html body.dark-mode footer.footer,
+html body footer.footer {
+  background: linear-gradient(180deg, rgba(3, 18, 10, .90), rgba(2, 12, 7, .96)) !important;
+  background-image: none !important;
+  border-top: 1px solid var(--forest-line) !important;
+  color: var(--soft-ivory) !important;
+}
+
+html body footer.footer h2,
+html body footer.footer h3,
+html body footer.footer h4,
+html body footer.footer .footer-logo-word,
+html body footer.footer .footer-logo-word span {
+  color: var(--warm-ivory) !important;
+}
+
+html body footer.footer p,
+html body footer.footer li,
+html body footer.footer small,
+html body footer.footer span {
+  color: var(--soft-ivory) !important;
+}
+
+html body footer.footer a {
+  color: var(--forest-muted) !important;
+}
+
+html body footer.footer a:hover {
+  color: var(--botanical-gold) !important;
+}
+
+html body footer.footer .newsletter-form input {
+  background: rgba(3, 20, 12, .55) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line) !important;
+}
+
+html body footer.footer .newsletter-form input::placeholder {
+  color: rgba(233, 229, 214, .55) !important;
+}
+
+html body footer.footer .newsletter-form button {
+  background: var(--botanical-gold) !important;
+  color: var(--forest-dark) !important;
+}
+
+html body footer.footer .footer-bottom {
+  border-top: 1px solid var(--forest-line-soft) !important;
+}
+
+/* ===========================================================================
+   14. FORM CONTROLS + MISC (visual only)
+   =========================================================================== */
+
+html body input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html body select,
+html body textarea {
+  background: rgba(3, 20, 12, .55) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line) !important;
+}
+
+html body input::placeholder,
+html body textarea::placeholder {
+  color: rgba(233, 229, 214, .55) !important;
+}
+
+html body input[type="checkbox"],
+html body input[type="radio"] {
+  accent-color: var(--botanical-gold) !important;
+}
+
+html body option {
+  background: #0B281A !important;
+  color: #F5F0DF !important;
+}
+
+html body hr {
+  border-color: var(--forest-line-soft) !important;
+}
+
+/* Safety: any leftover white/cream helper classes become transparent forest */
+html body .white-bg,
+html body .bg-white,
+html body [style*="background: white"],
+html body [style*="background-color: white"],
+html body [style*="background: #fff"],
+html body [style*="background-color: #fff"] {
+  background: transparent !important;
+}
+
+@media (max-width: 800px) {
+  body::before {
+    background-position: center top;
+    background-attachment: scroll;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    transform: none;
+  }
+}
+
+/* ===========================================================================
+   15. HIGH-SPECIFICITY CORRECTIONS (visual only)
+   Late light-mode rules in premium.css / botanical-theme.css out-specificity
+   earlier forest rules (extra IDs, extra classes, :not() scopes). Each rule
+   below mirrors the competing selector exactly — or exceeds it — so the last
+   loaded stylesheet wins. No layout, structure or behaviour is touched.
+   =========================================================================== */
+
+/* --- 15.1 Body: cream light-mode backgrounds never paint --------------- */
+html body:not(.dark-mode),
+html body.dark-mode {
+  background-color: transparent !important;
+  background-image: none !important;
+  background-attachment: scroll !important;
+  color: var(--soft-ivory) !important;
+}
+
+/* --- 15.2 Generic section cream wash / dark text (premium 1,1,4) ------- */
+html body:not(.dark-mode) main > section:not(.hero):not(#plantCare),
+html body.dark-mode main > section:not(.hero):not(#plantCare) {
+  background-color: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: var(--soft-ivory) !important;
+}
+
+/* --- 15.3 Studio photographic backdrop layers (premium 1,2,4) ---------- */
+html body:not(.dark-mode) section#studio.studio-section .studio-backdrop-photo,
+html body.dark-mode section#studio.studio-section .studio-backdrop-photo,
+html body:not(.dark-mode) section#studio.studio-section .studio-backdrop-overlay,
+html body.dark-mode section#studio.studio-section .studio-backdrop-overlay,
+body:not(.dark-mode) #studio .studio-backdrop-photo,
+body:not(.dark-mode) #studio .studio-backdrop-overlay {
+  background: transparent !important;
+  background-image: none !important;
+  filter: none !important;
+}
+
+/* --- 15.4 Studio text catch-alls (premium 1,1,3 / 1,2,3) --------------- */
+html body:not(.dark-mode) #studio .studio-intro h2,
+html body:not(.dark-mode) #studio .studio-panel h3,
+html body:not(.dark-mode) #studio .anatomy-card h3 {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) #studio p,
+html body:not(.dark-mode) #studio li,
+html body:not(.dark-mode) #studio small {
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) main section#studio .studio-panel,
+html body:not(.dark-mode) main section#studio .anatomy-card,
+html body:not(.dark-mode) main section#studio .anatomy-plant-card,
+html body:not(.dark-mode) main section#studio .anatomy-side-card,
+html body:not(.dark-mode) main section#studio .anatomy-stage,
+html body:not(.dark-mode) main section#studio .botanical-photo-stage,
+html body:not(.dark-mode) main section#studio .botanical-detail-below {
+  color: var(--soft-ivory) !important;
+}
+
+html body #studio .botanical-photo-overlay {
+  background: rgba(4, 26, 15, .82) !important;
+  border-color: rgba(201, 169, 105, .45) !important;
+}
+
+/* --- 15.5 Plant Passport (premium 1,2,x / 1,3,x selectors) ------------- */
+html body:not(.dark-mode) section#plantCare .passport-content {
+  background: transparent !important;
+  background-image: none !important;
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) #plantCare .passport-content .eyebrow,
+html body:not(.dark-mode) #plantCare .passport-content h2,
+html body:not(.dark-mode) #plantCare .passport-content p:not(.eyebrow),
+body:not(.dark-mode) .passport-section .passport-content h2 {
+  color: var(--soft-ivory) !important;
+}
+
+html body:not(.dark-mode) #plantCare .passport-content .eyebrow {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) .passport-section .passport-content p:not(.eyebrow),
+html body:not(.dark-mode) .benefits-section .benefit p,
+html body:not(.dark-mode) #customize .customizer-form p,
+html body:not(.dark-mode) #customize .customizer-form label {
+  color: var(--soft-ivory) !important;
+  text-shadow: none !important;
+}
+
+/* --- 15.6 Dashboard: botanical #dashboard#dashboard#dashboard block ----- */
+html body main > section#dashboard#dashboard#dashboard.dashboard-section,
+html body.dark-mode main > section#dashboard#dashboard#dashboard.dashboard-section {
+  background-color: transparent !important;
+  background-image: none !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+html body main > section#dashboard#dashboard#dashboard.dashboard-section .section-heading h2,
+html body main > section#dashboard#dashboard#dashboard.dashboard-section .section-heading h2 em {
+  color: var(--botanical-gold) !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .38) !important;
+}
+
+html body main > section#dashboard#dashboard#dashboard.dashboard-section .section-heading > p,
+html body main > section#dashboard#dashboard#dashboard.dashboard-section .gd-data-note {
+  color: var(--soft-ivory) !important;
+  text-shadow: none !important;
+}
+
+html body main > section#dashboard#dashboard#dashboard.dashboard-section .eyebrow {
+  color: var(--botanical-gold) !important;
+  text-shadow: none !important;
+}
+
+html body main > section#dashboard#dashboard#dashboard.dashboard-section .gd-data-note {
+  border-color: var(--forest-line-soft) !important;
+  background: rgba(4, 26, 15, .45) !important;
+  box-shadow: none !important;
+}
+
+/* --- 15.7 Dashboard custom-property overrides (1,1,4 / 1,2,4) ---------- */
+html body main > section#dashboard.dashboard-section {
+  --gd-ink: #F5F0DF;
+  --gd-muted: rgba(233, 229, 214, .74);
+  --gd-accent: #C9AD69;
+  --gd-accent-soft: rgba(201, 169, 105, .18);
+  --gd-card: rgba(4, 26, 15, .55);
+  --gd-card-line: rgba(201, 169, 105, .22);
+  --gd-panel-shadow: 0 14px 34px rgba(1, 10, 6, .35);
+  --dash-ink: #F5F0DF;
+  --dash-muted: rgba(233, 229, 214, .74);
+  --dash-accent: #C9AD69;
+  --dash-gold: #C9AD69;
+  --dash-line: rgba(201, 169, 105, .22);
+  --dash-soft: rgba(201, 169, 105, .14);
+  --dash-surface: rgba(4, 26, 15, .60);
+  --dash-card: rgba(4, 26, 15, .55);
+}
+
+html body main > section#dashboard.dashboard-section .gd-stat,
+html body main > section#dashboard.dashboard-section .gd-stat--plants,
+html body main > section#dashboard.dashboard-section .gd-stat--pots,
+html body main > section#dashboard.dashboard-section .gd-stat--customers,
+html body main > section#dashboard.dashboard-section .gd-stat--orders {
+  --gd-stat-bg: linear-gradient(145deg, rgba(11, 40, 26, .78), rgba(4, 26, 15, .68));
+  --gd-stat-line: rgba(201, 169, 105, .22);
+  --gd-stat-icon: #C9AD69;
+}
+
+/* --- 15.8 Dashboard hardcoded whites (premium/botanical 1,2,4) --------- */
+html body main > section#dashboard.dashboard-section .garden-dashboard {
+  background-color: rgba(4, 26, 15, .60) !important;
+  background-image: none !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-stat,
+html body main > section#dashboard.dashboard-section .gd-panel {
+  background-color: rgba(4, 26, 15, .55) !important;
+  background-image: none !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-live-chip,
+html body main > section#dashboard.dashboard-section .gd-refresh-btn,
+html body main > section#dashboard.dashboard-section .gd-filter-btn {
+  background: rgba(4, 26, 15, .55) !important;
+  color: var(--warm-ivory) !important;
+  border-color: rgba(201, 169, 105, .28) !important;
+  box-shadow: none !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-stat::after {
+  background: rgba(201, 169, 105, .10) !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-stat-icon {
+  background: rgba(201, 169, 105, .16) !important;
+  color: var(--botanical-gold) !important;
+  box-shadow: none !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-stat-trend {
+  background: rgba(4, 26, 15, .55) !important;
+  color: var(--botanical-gold) !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-panel-tag {
+  background: rgba(201, 169, 105, .16) !important;
+  color: var(--botanical-gold) !important;
+  border-color: rgba(201, 169, 105, .30) !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-plant-row,
+html body main > section#dashboard.dashboard-section .gd-pot-item,
+html body main > section#dashboard.dashboard-section .gd-order-summary > div,
+html body main > section#dashboard.dashboard-section .gd-order-row,
+html body main > section#dashboard.dashboard-section .gd-customer-row {
+  background: rgba(233, 229, 214, .07) !important;
+  border-color: rgba(201, 169, 105, .18) !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-plant-row.gd-clickable:hover {
+  background: rgba(201, 169, 105, .14) !important;
+  border-color: var(--botanical-gold) !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-plant-thumb {
+  background: rgba(201, 169, 105, .14) !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-pot-icon {
+  background: rgba(201, 169, 105, .16) !important;
+  color: var(--botanical-gold) !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-donut::before {
+  background: rgba(4, 26, 15, .70) !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-legend-bar,
+html body main > section#dashboard.dashboard-section .gd-rank-track,
+html body main > section#dashboard.dashboard-section .gd-chart-bar {
+  background: rgba(233, 229, 214, .14) !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-legend-bar i,
+html body main > section#dashboard.dashboard-section .gd-rank-track i,
+html body main > section#dashboard.dashboard-section .gd-chart-bar i {
+  background: linear-gradient(90deg, #C9AD69, #A9C47B) !important;
+}
+
+html body main > section#dashboard.dashboard-section .gd-avatar {
+  background: linear-gradient(135deg, #1C6B40, #A9C47B) !important;
+}
+
+/* --- 15.9 Design Summary + customize surfaces (premium 1,2,4 / 1,2,3) - */
+html body section#customize.customizer-section div.customizer-design-summary,
+html body:not(.dark-mode) #customize .customizer-design-summary,
+html body:not(.dark-mode) #customize .customizer-form {
+  background-color: rgba(4, 26, 15, .55) !important;
+  background-image: none !important;
+  color: var(--soft-ivory) !important;
+}
+
+html body #customize #customDesignDetails > div {
+  border-bottom-color: var(--forest-line-soft) !important;
+}
+
+html body #customize #customDesignDetails dt {
+  color: var(--forest-muted) !important;
+}
+
+html body #customize #customDesignDetails dd {
+  color: var(--warm-ivory) !important;
+}
+
+html body #customize .design-summary-note {
+  color: var(--forest-muted) !important;
+}
+
+/* Price line + panel headings (premium 1,2,x beats earlier 1,1,x) ------ */
+body:not(.dark-mode) #customize .customizer-price-line,
+html body:not(.dark-mode) #customize .customizer-price-line {
+  background-color: rgba(4, 26, 15, .45) !important;
+  background-image: none !important;
+  border-color: var(--forest-line) !important;
+}
+
+body:not(.dark-mode) #customize .customizer-form-title h3,
+body:not(.dark-mode) #customize .custom-info-heading h3,
+body:not(.dark-mode) #customize .custom-selected-plant > div > strong,
+body:not(.dark-mode) #customize .customizer-price-line span {
+  color: var(--warm-ivory) !important;
+  text-shadow: none !important;
+}
+
+body:not(.dark-mode) #customize .customizer-price-line strong {
+  color: var(--botanical-gold) !important;
+  text-shadow: none !important;
+}
+
+html body #customize .custom-selected-plant > img {
+  background: linear-gradient(145deg, #0B281A, #071B11) !important;
+}
+
+html body #customize .gift-options {
+  background: rgba(4, 26, 15, .45) !important;
+  border-color: var(--forest-line-soft) !important;
+}
+
+/* Form fields: cream inputs never win over forest glass ---------------- */
+body:not(.dark-mode) #customize .customizer-form input:not([type=checkbox]),
+body:not(.dark-mode) #customize .customizer-form select,
+body:not(.dark-mode) #customize .customizer-form textarea,
+html body #customize input:not([type=checkbox]):not([type=radio]),
+html body #customize select,
+html body #customize textarea,
+html body #customize input[type="checkbox"],
+html body #customize input[type="radio"] {
+  background-color: rgba(3, 20, 12, .60) !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line) !important;
+}
+
+html body #customize input[type="checkbox"],
+html body #customize input[type="radio"] {
+  accent-color: var(--botanical-gold) !important;
+}
+
+/* --- 15.10 Generic select / textarea / checkbox / placeholders --------- */
+html body:not(.dark-mode) select,
+html body:not(.dark-mode) textarea,
+html body:not(.dark-mode) input[type="checkbox"],
+html body:not(.dark-mode) input[type="radio"] {
+  background: rgba(3, 20, 12, .60) !important;
+  color: var(--warm-ivory) !important;
+  border-color: var(--forest-line) !important;
+}
+
+html body:not(.dark-mode) input::placeholder,
+html body:not(.dark-mode) textarea::placeholder {
+  color: rgba(233, 229, 214, .55) !important;
+  opacity: 1 !important;
+}
+
+/* --- 15.11 Modal / shop light cards ----------------------------------- */
+html body .modal-pot-details {
+  background: rgba(4, 26, 15, .55) !important;
+  border-color: var(--forest-line-soft) !important;
+  color: var(--soft-ivory) !important;
+}
+
+html body .modal-related-list button,
+html body .modal-related-card {
+  background: rgba(4, 26, 15, .55) !important;
+  border-color: var(--forest-line-soft) !important;
+  color: var(--soft-ivory) !important;
+}
+
+html body .modal-related-card img {
+  background: rgba(4, 26, 15, .40) !important;
+}
+
+html body #shop .product-image-wrap {
+  background: rgba(4, 26, 15, .50) !important;
+}
+
+/* --- 15.12 Buttons: hover state stays ivory ---------------------------- */
+html body .btn-light:hover,
+html body button.btn-light:hover {
+  background: var(--warm-ivory) !important;
+  color: var(--forest-dark) !important;
+}
+
+/* ===========================================================================
+   16. TARGETED FIXES — STUDIO / ANATOMY / PLANT CARE / SHOP CARDS
+   Each selector mirrors (or slightly exceeds) the exact legacy selector that
+   still wins the cascade. Background, border, shadow and colour only.
+   =========================================================================== */
+
+/* --- 16.1 Garden Studio: the explorer card becomes a visible dark-glass
+       panel with a botanical border and soft depth (forest stays visible). -- */
+html body:not(.dark-mode) main section#studio .studio-panel,
+html body.dark-mode main section#studio .studio-panel,
+html body main section#studio .studio-panel {
+  background: rgba(5, 31, 19, .56) !important;
+  background-image: none !important;
+  border: 1px solid rgba(201, 169, 105, .30) !important;
+  box-shadow: 0 24px 56px rgba(1, 10, 6, .46) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* The inner viewer wrapper stays clear so the panel reads as one surface. */
+html body:not(.dark-mode) main section#studio .anatomy-viewer,
+html body.dark-mode main section#studio .anatomy-viewer,
+html body main section#studio .anatomy-viewer {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* --- 16.2 Plant Anatomy: one identical dark forest-green tone on the left
+       profile card, the central viewer and the right structure card. ------- */
+html body:not(.dark-mode) #studio .botanical-explorer-grid > .anatomy-card,
+html body.dark-mode #studio .botanical-explorer-grid > .anatomy-card,
+html body #studio .botanical-explorer-grid > .anatomy-card,
+html body:not(.dark-mode) #studio .botanical-explorer-grid > .anatomy-side-card,
+html body.dark-mode #studio .botanical-explorer-grid > .anatomy-side-card,
+html body #studio .botanical-explorer-grid > .anatomy-side-card,
+html body:not(.dark-mode) #studio .botanical-explorer-grid > .anatomy-stage,
+html body.dark-mode #studio .botanical-explorer-grid > .anatomy-stage,
+html body #studio .botanical-explorer-grid > .anatomy-stage {
+  background: rgba(6, 33, 20, .66) !important;
+  background-color: rgba(6, 33, 20, .66) !important;
+  background-image: none !important;
+  border: 1px solid rgba(201, 169, 105, .26) !important;
+  box-shadow: 0 14px 32px rgba(1, 10, 6, .34) !important;
+  color: var(--soft-ivory) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Headings inside both side cards: ivory instead of legacy dark green. */
+html body:not(.dark-mode) #studio .botanical-explorer-grid > .anatomy-side-card h3,
+html body:not(.dark-mode) #studio .anatomy-info h3,
+html body:not(.dark-mode) #studio .anatomy-part-name,
+html body:not(.dark-mode) #studio .botanical-part-name,
+html body:not(.dark-mode) #studio .botanical-panel-heading strong,
+html body:not(.dark-mode) #studio .botanical-selected-explanation h3,
+html body:not(.dark-mode) #studio .botanical-explorer-grid > .anatomy-card h3 {
+  color: var(--warm-ivory) !important;
+  text-shadow: none !important;
+}
+
+/* Body copy inside both side cards: soft ivory instead of legacy dark green. */
+html body:not(.dark-mode) #studio .botanical-explorer-grid > .anatomy-side-card p,
+html body:not(.dark-mode) #studio .anatomy-info p,
+html body:not(.dark-mode) #studio .anatomy-info li,
+html body:not(.dark-mode) #studio .anatomy-part-struct,
+html body:not(.dark-mode) #studio .anatomy-part-fn,
+html body:not(.dark-mode) #studio .botanical-part-item,
+html body:not(.dark-mode) #studio .botanical-part-item strong,
+html body:not(.dark-mode) #studio .botanical-part-item small,
+html body:not(.dark-mode) #studio .botanical-description,
+html body:not(.dark-mode) #studio .botanical-latin,
+html body:not(.dark-mode) #studio .botanical-explorer-grid > .anatomy-card p,
+html body:not(.dark-mode) #studio .botanical-explorer-grid > .anatomy-card li {
+  color: var(--soft-ivory) !important;
+  text-shadow: none !important;
+}
+
+html body #studio .anatomy-info p strong,
+html body #studio .anatomy-card .anatomy-info p strong {
+  color: var(--warm-ivory) !important;
+}
+
+/* Studio panel headings + labels (profile, library). */
+html body #studio .botanical-profile-card h3,
+html body #studio .botanical-anatomy-card h3,
+html body #studio .botanical-library-head h3 {
+  color: var(--warm-ivory) !important;
+}
+
+html body:not(.dark-mode) #studio .anatomy-head-label {
+  color: var(--botanical-gold) !important;
+}
+
+html body #studio .anatomy-partlist-title {
+  color: var(--botanical-gold) !important;
+}
+
+/* Part list separators + emblem read as botanical detailing on dark glass. */
+html body #studio .botanical-anatomy-card .anatomy-partlist {
+  border-color: var(--forest-line-soft) !important;
+}
+
+html body #studio .botanical-profile-emblem {
+  background: rgba(201, 169, 105, .14) !important;
+  color: var(--botanical-gold) !important;
+  border-color: rgba(201, 169, 105, .55) !important;
+  box-shadow: inset 0 0 0 5px rgba(6, 26, 16, .55) !important;
+}
+
+/* Thumbnails keep their photos; only the empty frame behind them darkens. */
+html body #studio .botanical-chip-thumb,
+html body #studio .botanical-part-thumb,
+html body:not(.dark-mode) #studio .botanical-chip-thumb,
+html body:not(.dark-mode) #studio .botanical-part-thumb {
+  background: rgba(4, 26, 15, .55) !important;
+  background-image: none !important;
+}
+
+/* Mode tabs, zoom tools and specimen chips: dark pills instead of beige. */
+html body:not(.dark-mode) #studio .botanical-stage-head .studio-tool,
+html body:not(.dark-mode) #studio .botanical-plant-chip {
+  background: rgba(4, 26, 15, .55) !important;
+  background-color: rgba(4, 26, 15, .55) !important;
+  background-image: none !important;
+  color: var(--warm-ivory) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+  box-shadow: none !important;
+}
+
+html body:not(.dark-mode) #studio .botanical-stage-head .studio-tool.active,
+html body:not(.dark-mode) #studio .botanical-plant-chip.active,
+html body:not(.dark-mode) #studio .botanical-explore {
+  background: var(--botanical-gold) !important;
+  background-color: var(--botanical-gold) !important;
+  background-image: none !important;
+  color: var(--forest-dark) !important;
+  border-color: var(--botanical-gold) !important;
+  box-shadow: 0 8px 18px rgba(1, 10, 6, .28) !important;
+}
+
+html body #studio .anatomy-library::before {
+  color: var(--botanical-gold) !important;
+}
+
+/* Viewer backgrounds: the area around the plant model is one dark tone. */
+html body #studio .botanical-photo-wrap {
+  background: rgba(4, 26, 15, .50) !important;
+  background-image: none !important;
+}
+
+html body #studio .anatomy-canvas-wrap:has(.botanical-image-layer.is-specimen-view) {
+  background: radial-gradient(ellipse at 50% 42%, rgba(9, 40, 25, .55) 0%, rgba(6, 26, 16, .35) 68%, rgba(4, 20, 12, .20) 100%) !important;
+}
+
+/* Care grid inside the profile card. */
+html body #studio .botanical-care-grid div,
+html body:not(.dark-mode) #studio .botanical-care-grid div {
+  background: rgba(4, 26, 15, .42) !important;
+  background-image: none !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+/* --- 16.3 Plant Care: the passport text sits directly on the forest ------- */
+html body:not(.dark-mode) main > section#plantCare.passport-section .passport-content,
+html body.dark-mode main > section#plantCare.passport-section .passport-content,
+html body main > section#plantCare.passport-section .passport-content,
+html body:not(.dark-mode) section#plantCare .passport-content {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body #plantCare.passport-section,
+html body:not(.dark-mode) #plantCare.passport-section,
+html body.dark-mode #plantCare.passport-section {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* The decorative card-corner glyph belonged to the removed card. */
+html body section#plantCare .passport-content::after {
+  content: none !important;
+  display: none !important;
+}
+
+html body:not(.dark-mode) main > section#plantCare.passport-section .passport-content h2,
+html body.dark-mode main > section#plantCare.passport-section .passport-content h2 {
+  color: var(--warm-ivory) !important;
+  text-shadow: none !important;
+}
+
+html body:not(.dark-mode) main > section#plantCare.passport-section .passport-content h2 em,
+html body.dark-mode main > section#plantCare.passport-section .passport-content h2 em {
+  color: var(--botanical-gold) !important;
+}
+
+html body:not(.dark-mode) main > section#plantCare.passport-section .passport-content p:not(.eyebrow),
+html body.dark-mode main > section#plantCare.passport-section .passport-content p:not(.eyebrow) {
+  color: var(--soft-ivory) !important;
+  text-shadow: none !important;
+}
+
+html body:not(.dark-mode) main > section#plantCare.passport-section .passport-content .eyebrow,
+html body.dark-mode main > section#plantCare.passport-section .passport-content .eyebrow {
+  color: var(--botanical-gold) !important;
+  text-shadow: none !important;
+}
+
+/* --- 16.4 Shop Plants: translucent forest cards, ivory copy, gold prices --- */
+html body:not(.dark-mode) #shop #productGrid .product-card,
+html body.dark-mode #shop #productGrid .product-card,
+html body #shop #productGrid .product-card {
+  background: rgba(5, 31, 19, .62) !important;
+  background-color: rgba(5, 31, 19, .62) !important;
+  background-image: none !important;
+  border: 1px solid rgba(201, 169, 105, .24) !important;
+  color: var(--soft-ivory) !important;
+  box-shadow: 0 14px 34px rgba(1, 10, 6, .34) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Info column: let the card surface show through, no second cream block. */
+html body:not(.dark-mode) #shop #productGrid .product-info,
+html body.dark-mode #shop #productGrid .product-info,
+html body #shop #productGrid .product-info {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--soft-ivory) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Photo well behind the product photograph (photo itself is untouched). */
+html body #shop #productGrid .product-image-wrap,
+html body:not(.dark-mode) #shop #productGrid .product-image-wrap,
+html body.dark-mode #shop #productGrid .product-image-wrap {
+  background: rgba(6, 30, 18, .50) !important;
+  background-image: none !important;
+}
+
+html body #shop #productGrid .product-title-open,
+html body #shop #productGrid .product-info h3,
+html body.dark-mode #shop #productGrid .product-title-open,
+html body.dark-mode #shop #productGrid .product-info h3 {
+  color: var(--warm-ivory) !important;
+}
+
+html body #shop #productGrid .product-description,
+html body.dark-mode #shop #productGrid .product-description {
+  color: var(--soft-ivory) !important;
+}
+
+html body #shop #productGrid .product-rating,
+html body.dark-mode #shop #productGrid .product-rating {
+  color: var(--sage-green) !important;
+}
+
+html body #shop #productGrid .product-rating small,
+html body.dark-mode #shop #productGrid .product-rating small {
+  color: var(--forest-muted) !important;
+}
+
+html body #shop #productGrid .product-price,
+html body.dark-mode #shop #productGrid .product-price {
+  color: var(--botanical-gold) !important;
+}
+
+html body #shop #productGrid .product-original-price {
+  color: var(--forest-muted) !important;
+}
+
+html body #shop #productGrid .product-price-row {
+  border-top-color: var(--forest-line-soft) !important;
+}
+
+/* Keep the existing lift, but with a botanical hover edge instead of cream. */
+html body #shop #productGrid .product-card:hover {
+  border-color: rgba(201, 169, 105, .60) !important;
+  box-shadow: 0 20px 44px rgba(1, 10, 6, .48) !important;
+}
+
+/* Category tag on the photograph: dark glass label with a gold caption. */
+html body:not(.dark-mode) #shop #productGrid .product-tag,
+html body.dark-mode #shop #productGrid .product-tag,
+html body #shop #productGrid .product-tag {
+  background: rgba(4, 26, 15, .82) !important;
+  background-color: rgba(4, 26, 15, .82) !important;
+  background-image: none !important;
+  color: var(--botanical-gold) !important;
+  border: 1px solid rgba(201, 169, 105, .55) !important;
+}
+
+/* Discount badge reads as a gold highlight, not a light-green sticker. */
+html body:not(.dark-mode) #shop #productGrid .product-discount,
+html body.dark-mode #shop #productGrid .product-discount,
+html body #shop #productGrid .product-discount {
+  background: rgba(201, 169, 105, .18) !important;
+  background-color: rgba(201, 169, 105, .18) !important;
+  background-image: none !important;
+  color: var(--botanical-gold) !important;
+  border: 1px solid rgba(201, 169, 105, .45) !important;
+  text-shadow: none !important;
+}
+
+html body.dark-mode #shop #productGrid .product-original-price {
+  color: var(--forest-muted) !important;
+}
+
+/* Category filter pills above the grid (same cream remnants). */
+html body:not(.dark-mode) section#shop.shop-section .category-list button.category-btn,
+html body.dark-mode section#shop.shop-section .category-list button.category-btn,
+html body:not(.dark-mode) section#shop.shop-section button.category-btn {
+  background-color: rgba(4, 26, 15, .60) !important;
+  background-image: none !important;
+  color: var(--soft-ivory) !important;
+  border: 1px solid var(--forest-line-soft) !important;
+}
+
+html body:not(.dark-mode) section#shop.shop-section .category-list button.category-btn.active,
+html body:not(.dark-mode) section#shop.shop-section .category-list button.category-btn:hover,
+html body.dark-mode section#shop.shop-section .category-list button.category-btn.active,
+html body.dark-mode section#shop.shop-section .category-list button.category-btn:hover,
+html body:not(.dark-mode) section#shop.shop-section button.category-btn.active,
+html body:not(.dark-mode) section#shop.shop-section button.category-btn:hover {
+  background-color: rgba(201, 169, 105, .20) !important;
+  background-image: none !important;
+  color: var(--botanical-gold) !important;
+  border-color: var(--botanical-gold) !important;
+}

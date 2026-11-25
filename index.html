@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#092A19">
+    <meta name="description" content="Green Living — premium plants, personalized AI plant gifts and botanical styling for everyday spaces.">
+    <meta property="og:title" content="Green Living | Nature Inside the Architecture">
+    <meta property="og:description" content="Premium plants, custom AI plant designs and botanical styling. Bring nature closer to home.">
+    <meta property="og:type" content="website">
+ 
+    <title>Green Living | Nature Inside The Architecture</title>
+ 
+    <link rel="icon" type="image/svg+xml" href="assets\logo\greenliving.png">
+    <link rel="apple-touch-icon" href="assets\logo\greenliving.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ 
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="premium.css">
+    <!-- Botanical theme must load after premium.css so its leaf textures and forest palette win the cascade. -->
+    <link rel="stylesheet" href="botanical-theme.css">
+    <!-- Final visual authority: forest palette + targeted section overrides. Must stay last. -->
+    <link rel="stylesheet" href="forest-theme-overrides.css">
+<link rel="stylesheet" href="forest-reference-template.css">
+<link rel="stylesheet" href="hero-scroll.css">
+
+</head>
+ 
+<body>
+
+<!-- BRAND EMBLEM SPRITE (inline so the logo is crisp, theme-aware and offline-safe) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <symbol id="gl-emblem" viewBox="0 0 200 200">
+        <defs>
+            <linearGradient id="gle-gold" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#E9D19A"/><stop offset=".55" stop-color="#C5A66B"/><stop offset="1" stop-color="#A9853F"/>
+            </linearGradient>
+            <radialGradient id="gle-sun" cx=".5" cy=".42" r=".7">
+                <stop offset="0" stop-color="#F6E5B8"/><stop offset=".72" stop-color="#DCC084"/><stop offset="1" stop-color="#C5A66B"/>
+            </radialGradient>
+            <linearGradient id="gle-sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#FAF6EC"/><stop offset="1" stop-color="#E7DCC1"/>
+            </linearGradient>
+            <linearGradient id="gle-peak-back" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2E5F57"/><stop offset="1" stop-color="#1C443E"/>
+            </linearGradient>
+            <linearGradient id="gle-peak-front" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1E4640"/><stop offset="1" stop-color="#122E29"/>
+            </linearGradient>
+            <linearGradient id="gle-ground" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F3EDDC"/><stop offset="1" stop-color="#DCCFB2"/>
+            </linearGradient>
+            <clipPath id="gle-clip"><circle cx="100" cy="100" r="84"/></clipPath>
+        </defs>
+        <circle cx="100" cy="100" r="96" fill="none" stroke="url(#gle-gold)" stroke-width="3"/>
+        <circle cx="100" cy="100" r="89.5" fill="none" stroke="url(#gle-gold)" stroke-width="1" opacity=".65"/>
+        <g clip-path="url(#gle-clip)">
+            <circle cx="100" cy="100" r="84" fill="url(#gle-sky)"/>
+            <g stroke="url(#gle-gold)" stroke-width="2.4" stroke-linecap="round">
+                <line x1="124.4" y1="79.1" x2="132" y2="76.4"/>
+                <line x1="116.7" y1="68.1" x2="121.9" y2="62"/>
+                <line x1="104.5" y1="62.4" x2="105.9" y2="54.5"/>
+                <line x1="95.5"  y1="62.4" x2="94.1" y2="54.5"/>
+                <line x1="83.3"  y1="68.1" x2="78.1" y2="62"/>
+                <line x1="75.6"  y1="79.1" x2="68"   y2="76.4"/>
+            </g>
+            <circle cx="100" cy="88" r="22" fill="url(#gle-sun)"/>
+            <path d="M48 132 L100 58 L152 132 Z" fill="url(#gle-peak-back)"/>
+            <path d="M100 58 L84 82" fill="none" stroke="#E9D19A" stroke-width="1.6" opacity=".85"/>
+            <path d="M22 132 L70 76 L118 132 Z" fill="url(#gle-peak-front)"/>
+            <path d="M70 76 L58 94" fill="none" stroke="#DCC084" stroke-width="1.2" opacity=".6"/>
+            <path d="M82 132 L130 76 L178 132 Z" fill="url(#gle-peak-front)"/>
+            <path d="M130 76 L142 94" fill="none" stroke="#DCC084" stroke-width="1.2" opacity=".6"/>
+            <rect x="14" y="130" width="172" height="58" fill="url(#gle-ground)"/>
+            <line x1="16" y1="130.5" x2="184" y2="130.5" stroke="#C5A66B" stroke-width="1" opacity=".45"/>
+            <path d="M100 131 C 90 139, 112 146, 100 154 C 90 161, 110 167, 100 174"
+                  fill="none" stroke="url(#gle-gold)" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M60 162 C 38 154, 23 131, 27 101 C 51 110, 64 133, 60 162 Z" fill="#255A4C"/>
+            <path d="M57 157 C 45 143, 35 124, 31 106" fill="none" stroke="url(#gle-gold)" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M48 139 L55 133 M41 127 L47 121 M36 117 L41 112" stroke="url(#gle-gold)" stroke-width="1.3" stroke-linecap="round"/>
+            <path d="M140 162 C 162 154, 177 131, 173 101 C 149 110, 136 133, 140 162 Z" fill="#255A4C"/>
+            <path d="M143 157 C 155 143, 165 124, 169 106" fill="none" stroke="url(#gle-gold)" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M152 139 L145 133 M159 127 L153 121 M164 117 L159 112" stroke="url(#gle-gold)" stroke-width="1.3" stroke-linecap="round"/>
+        </g>
+    </symbol>
+
+    <symbol id="gl-leaf" viewBox="0 0 64 64">
+        <path d="M55 7C30 8 12 18 9 37c-2 12 6 19 17 19 19 0 30-20 29-49Z" fill="#4F7B45"/>
+        <path d="M13 55C24 39 36 28 51 16" fill="none" stroke="#F7F3E7" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+        <path d="M27 40l-2-13M37 31l10 1M23 48l-5-9" fill="none" stroke="#DCEBC5" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+    </symbol>
+</svg>
+
+<a class="skip-link" href="#shop">Skip to the plant shop</a>
+ 
+<!-- PAGE LOADER -->
+<div class="page-loader" id="pageLoader">
+    <div class="loader-leaf">🌿</div>
+    <p>Growing something beautiful...</p>
+    <div class="loader-line"><span></span></div>
+</div>
+ 
+<div class="ambient-orb orb-one"></div>
+<div class="ambient-orb orb-two"></div>
+ 
+<!-- NAVIGATION -->
+<header class="navbar" id="navbar">
+ 
+    <a class="logo footer-logo" href="#home" aria-label="GreenLiving home">
+    <img
+        src="assets/logo/GL.png"
+        alt="Green Living Logo"
+        class="footer-logo-image"
+    >
+    <span class="logo-word">Green<span>Living.</span></span>
+</a>
+ 
+    <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#studio">Garden Studio</a>
+        <a href="#dashboard">My Garden</a>
+        <a href="#shop" class="active" aria-current="page">Shop</a>
+        <a href="#customize">Customize</a>
+        <a href="#plantCare">Plant Care</a>
+    </nav>
+ 
+    <div class="nav-actions">
+        <div class="search-box nav-search-box" role="search">
+            <input type="search" id="searchInput" placeholder="Search plants, pots, accessories..." aria-label="Search plants, pots and accessories">
+            <button id="searchButton" aria-label="Search">⌕</button>
+        </div>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">☼</button>
+        <button class="icon-btn" id="wishlistNav" aria-label="Wishlist">♡</button>
+        <button class="icon-btn cart-button" id="cartOpen" aria-label="Open cart">🛒 <span id="cartCount">0</span></button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+    </div>
+ 
+</header>
+ 
+<main>
+ 
+<!-- HOME -->
+
+<section class="gl-cinematic-hero" id="homeHero">
+
+  <video
+    id="homeHeroVideo"
+    class="gl-hero-video"
+    muted
+    playsinline
+    preload="auto"
+  >
+    <source
+      src="assets/videos/green-living-journey.mp4"
+      type="video/mp4"
+    />
+  </video>
+
+  <div class="gl-hero-overlay"></div>
+
+  <div class="gl-hero-content gl-scene-captions" aria-live="polite">
+    <div class="gl-scene-caption is-active" data-scene-start="0" data-scene-end="2.05" aria-hidden="false">
+      <p class="gl-scene-eyebrow">THE BEGINNING</p>
+      <h1>Every Garden Starts with a Seed</h1>
+      <p>Small beginnings grow into something beautiful.</p>
+    </div>
+    <div class="gl-scene-caption" data-scene-start="2.05" data-scene-end="5.80" aria-hidden="true">
+      <p class="gl-scene-eyebrow">GROW WITH NATURE</p>
+      <h1>A Greener Way to Grow</h1>
+      <p>Discover the beauty of nurturing plants in a thriving greenhouse.</p>
+    </div>
+    <div class="gl-scene-caption" data-scene-start="5.80" data-scene-end="6.80" aria-hidden="true">
+      <p class="gl-scene-eyebrow">YOUR OUTDOOR CORNER</p>
+      <h1>Bring Green to Your Balcony</h1>
+      <p>Turn your balcony into a refreshing green escape.</p>
+    </div>
+    <div class="gl-scene-caption" data-scene-start="6.80" data-scene-end="8.45" aria-hidden="true">
+      <p class="gl-scene-eyebrow">NATURE AT HOME</p>
+      <h1>Let Nature Live Indoors</h1>
+      <p>Create a calm, welcoming space with the beauty of plants.</p>
+    </div>
+    <div class="gl-scene-caption" data-scene-start="8.45" data-scene-end="10.05" aria-hidden="true">
+      <p class="gl-scene-eyebrow">STEP OUTSIDE</p>
+      <h1>Make Room for the Outdoors</h1>
+      <p>Bring your world to life with a little more green.</p>
+    </div>
+  </div>
+
+  <div class="gl-scroll-indicator" id="heroScrollHint">
+    <span>SCROLL TO EXPLORE</span>
+    <span>↓</span>
+  </div>
+</section>
+  
+<!-- GARDEN STUDIO — PHOTO-BASED BOTANICAL EXPERIENCE -->
+<section class="studio-section section-padding" id="studio">
+  <div class="studio-backdrop" aria-hidden="true"><div class="studio-backdrop-photo"></div><div class="studio-backdrop-overlay"></div></div>
+
+  <div class="studio-intro reveal">
+    <p class="eyebrow">THE GARDEN STUDIO</p>
+    <h2 class="studio-heading">Discover the <em>Art of </em>Living Nature</h2>
+    <p class="studio-lead">Step into a world where every leaf tells a story and every bloom reveals the beauty of nature.</p>
+    <p class="studio-support">Select a specimen and explore its leaves, stems, roots and flowers.</p>
+  </div>
+
+  <div class="studio-panel reveal" id="studioBotanicalPanel">
+      <div class="studio-preview-head">
+        <span class="studio-preview-label">GARDEN STUDIO · BOTANICAL EXPLORER</span>
+        <span class="botanical-live-label"><i></i> PHOTO-BASED LEARNING</span>
+      </div>
+
+      <div class="anatomy-viewer botanical-explorer" id="anatomyViewer">
+        <div class="anatomy-head botanical-library-head">
+          <div><p class="anatomy-head-label">CHOOSE A SPECIMEN</p><h3>Plant Library</h3></div>
+          <div class="anatomy-library" id="anatomyLibrary" role="group" aria-label="Plant library"></div>
+        </div>
+
+        <div class="anatomy-grid botanical-explorer-grid">
+          <aside class="anatomy-card anatomy-plant-card botanical-profile-card" id="anatomyPlantInfo" aria-live="polite"></aside>
+
+          <section class="anatomy-stage botanical-photo-stage" aria-label="Interactive plant photograph">
+            <div class="anatomy-stage-head botanical-stage-head">
+              <div class="anatomy-modes" id="anatomyModes" role="group" aria-label="Plant photograph views">
+                <button type="button" class="studio-tool anatomy-mode" data-mode="whole">Whole Plant</button>
+                <button type="button" class="studio-tool anatomy-mode active" data-mode="labels">Anatomy Labels</button>
+                <button type="button" class="studio-tool anatomy-mode" data-mode="closeup">Parts Up Close</button>
+                <button type="button" class="studio-tool anatomy-mode" data-mode="roots">Root View</button>
+              </div>
+              <div class="anatomy-view-actions botanical-image-actions">
+                <button type="button" class="studio-tool" id="anatomyZoomOut" aria-label="Zoom out">−</button>
+                <button type="button" class="studio-tool" id="anatomyZoomIn" aria-label="Zoom in">+</button>
+                <button type="button" class="studio-tool" id="anatomyZoomReset">Reset</button>
+                <button type="button" class="studio-tool" id="anatomyFullscreen" aria-label="View full screen">⛶</button>
+              </div>
+            </div>
+
+            <div class="anatomy-canvas-wrap botanical-photo-wrap" id="anatomyCanvasWrap">
+              <div class="botanical-image-layer" id="botanicalImageLayer">
+                <img id="anatomyMainImage" src="" alt="Selected plant" draggable="false">
+                <div class="anatomy-labels botanical-hotspots" id="anatomyLabels" aria-label="Clickable plant anatomy hotspots"></div>
+              </div>
+              <div class="botanical-photo-overlay"><span>BOTANICAL FIELD STUDY</span><strong id="anatomyImageCaption">Selected plant photograph</strong></div>
+            </div>
+            <p class="anatomy-help botanical-stage-help">Follow the botanical arrows or choose a structure from Discover the Structure.</p>
+          </section>
+
+          <aside class="anatomy-card anatomy-side-card botanical-anatomy-card">
+            <div class="anatomy-partlist" id="anatomyPartList" aria-live="polite"></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+
+</section>
+
+<!-- DASHBOARD -->
+<section class="dashboard-section section-padding" id="dashboard">
+
+    <div class="section-heading reveal">
+
+        <div>
+            <p class="eyebrow">YOUR LIVING ECOSYSTEM</p>
+            <h2>Garden Overview</h2>
+        </div>
+
+        <p>TRACK. GROW. ENJOY.</p>
+
+    </div>
+
+    <p class="gd-data-note">
+        Figures come from the live catalogue and saved store orders — no sample activity or demo counts.
+    </p>
+
+
+    <div class="garden-dashboard reveal" id="gardenDashboard">
+
+        <div class="gd-topbar">
+
+            <div class="gd-topbar-copy">
+                <p class="gd-kicker">GARDEN INTELLIGENCE</p>
+                <h3>Your green world, beautifully organised.</h3>
+                <p id="gardenDashboardSource" aria-live="polite">Reading live catalogue and saved store orders…</p>
+            </div>
+
+            <div class="gd-topbar-actions">
+                <span class="gd-live-chip" aria-label="Live application data">
+                    <span aria-hidden="true"></span>
+                    Live store data
+                </span>
+                <button class="gd-refresh-btn" id="gardenDashboardRefresh" type="button" aria-label="Refresh dashboard data">
+                    <span aria-hidden="true">↻</span> <span class="gd-refresh-label">Refresh</span>
+                </button>
+                <button class="gd-filter-btn" type="button" data-dashboard-category="All">View all plants →</button>
+            </div>
+
+        </div>
+
+
+        <div class="gd-stat-grid" aria-label="Garden dashboard statistics">
+
+            <article class="gd-stat gd-stat--plants">
+                <span class="gd-stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 21v-8"/>
+                        <path d="M12 14C7.6 14 5 11.5 5 7c4.3 0 7 2.5 7 7Z"/>
+                        <path d="M12 16c4.4 0 7-2.5 7-7-4.3 0-7 2.5-7 7Z"/>
+                    </svg>
+                </span>
+                <div class="gd-stat-body">
+                    <p>Total Plant Varieties</p>
+                    <strong class="gd-stat-value" data-dashboard-stat="plants">—</strong>
+                    <small>Live from the plant catalogue</small>
+                </div>
+            </article>
+
+            <article class="gd-stat gd-stat--pots">
+                <span class="gd-stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 9h14l-1.4 10.2a1.8 1.8 0 0 1-1.8 1.5H8.2a1.8 1.8 0 0 1-1.8-1.5L5 9Z"/>
+                        <path d="M4 9h16"/>
+                        <path d="M9 5.5h6"/>
+                        <path d="M12 5.5V3.2"/>
+                    </svg>
+                </span>
+                <div class="gd-stat-body">
+                    <p>Total Pot Varieties</p>
+                    <strong class="gd-stat-value" data-dashboard-stat="pots">—</strong>
+                    <small>Styles in the customizer</small>
+                </div>
+            </article>
+
+            <article class="gd-stat gd-stat--customers">
+                <span class="gd-stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="8" r="3.2"/>
+                        <path d="M3.5 19.5c.5-3.4 2.6-5.1 5.5-5.1s5 1.7 5.5 5.1"/>
+                        <path d="M16 6.2c1.8.2 3 1.4 3 3.1 0 1.5-1 2.6-2.5 3"/>
+                        <path d="M17 14.7c2 .5 3.2 2 3.5 4.8"/>
+                    </svg>
+                </span>
+                <div class="gd-stat-body">
+                    <p>Total Customers</p>
+                    <strong class="gd-stat-value" data-dashboard-stat="customers">—</strong>
+                    <small>Unique saved order emails</small>
+                </div>
+            </article>
+
+            <article class="gd-stat gd-stat--orders">
+                <span class="gd-stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 3.8h9.5L19 7.3v12.9H6V3.8Z"/>
+                        <path d="M15 3.8v3.6h4"/>
+                        <path d="M9 11h6M9 14.5h6M9 18h4"/>
+                    </svg>
+                </span>
+                <div class="gd-stat-body">
+                    <p>Total Orders</p>
+                    <strong class="gd-stat-value" data-dashboard-stat="orders">—</strong>
+                    <small>Saved store orders only</small>
+                </div>
+            </article>
+
+        </div>
+
+
+        <div class="gd-panels">
+
+            <article class="gd-panel gd-panel--collection">
+                <header class="gd-panel-head">
+                    <div>
+                        <p class="gd-panel-kicker">COLLECTION MIX</p>
+                        <h3>Plant collection overview</h3>
+                    </div>
+                    <span class="gd-panel-tag">Catalogue</span>
+                </header>
+
+                <div class="gd-collection-body">
+                    <div class="gd-donut" id="gardenDonut" role="img" aria-label="Plant category distribution">
+                        <span>
+                            <strong id="gardenDonutValue">0</strong>
+                            <small>varieties</small>
+                        </span>
+                    </div>
+                    <div class="gd-legend" id="gardenCategoryLegend" aria-label="Plant categories"></div>
+                </div>
+            </article>
+
+
+            <article class="gd-panel gd-panel--recent">
+                <header class="gd-panel-head">
+                    <div>
+                        <p class="gd-panel-kicker">FRESH ARRIVALS</p>
+                        <h3>Recently added plants</h3>
+                    </div>
+                    <span class="gd-panel-tag">New</span>
+                </header>
+                <div class="gd-plant-list" id="gardenRecentPlants"></div>
+            </article>
+
+
+            <article class="gd-panel gd-panel--popular">
+                <header class="gd-panel-head">
+                    <div>
+                        <p class="gd-panel-kicker">MOST LOVED</p>
+                        <h3>Popular plant varieties</h3>
+                    </div>
+                    <span class="gd-panel-tag">From orders</span>
+                </header>
+                <div class="gd-rank-list" id="gardenPopularPlants"></div>
+            </article>
+
+
+            <article class="gd-panel gd-panel--pots">
+                <header class="gd-panel-head">
+                    <div>
+                        <p class="gd-panel-kicker">STYLE LIBRARY</p>
+                        <h3>Available pot collections</h3>
+                    </div>
+                    <span class="gd-panel-tag" id="gardenPotCount">0 styles</span>
+                </header>
+                <div class="gd-pot-grid" id="gardenPotCollections"></div>
+            </article>
+
+
+            <article class="gd-panel gd-panel--recent-orders">
+                <header class="gd-panel-head">
+                    <div>
+                        <p class="gd-panel-kicker">ORDER FLOW</p>
+                        <h3>Recent orders</h3>
+                    </div>
+                    <span class="gd-panel-tag">Saved orders</span>
+                </header>
+                <div class="gd-order-list" id="gardenRecentOrders" aria-live="polite"></div>
+            </article>
+
+
+            <article class="gd-panel gd-panel--customers">
+                <header class="gd-panel-head">
+                    <div>
+                        <p class="gd-panel-kicker">CUSTOMER INFORMATION</p>
+                        <h3>Customer information</h3>
+                    </div>
+                    <span class="gd-panel-tag">From orders</span>
+                </header>
+                <div class="gd-customer-list" id="gardenCustomers" aria-live="polite"></div>
+            </article>
+
+
+            <article class="gd-panel gd-panel--orders">
+                <header class="gd-panel-head">
+                    <div>
+                        <p class="gd-panel-kicker">ORDER FLOW</p>
+                        <h3>Order overview</h3>
+                    </div>
+                    <span class="gd-panel-tag" id="gardenLocalOrderCount">0 local</span>
+                </header>
+
+                <div class="gd-order-summary">
+                    <div>
+                        <span>All orders</span>
+                        <strong id="gardenOrderTotal">—</strong>
+                    </div>
+                    <div>
+                        <span>Completed</span>
+                        <strong id="gardenOrderCompleted">—</strong>
+                    </div>
+                    <div>
+                        <span>In progress</span>
+                        <strong id="gardenOrderActive">—</strong>
+                    </div>
+                </div>
+
+                <div class="gd-chart" id="gardenOrderChart" aria-label="Monthly order trend from saved orders"></div>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SHOP -->
+<section class="shop-section section-padding" id="shop">
+    <div class="shop-hero reveal">
+        <span class="shop-hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 8.2h15l-1.25 11.2a1.6 1.6 0 0 1-1.6 1.4H7.35a1.6 1.6 0 0 1-1.6-1.4L4.5 8.2Z"/>
+                <path d="M8.8 8.6V6.3a3.2 3.2 0 0 1 6.4 0v2.3"/>
+                <path d="M9.7 13.2h4.6"/>
+            </svg>
+        </span>
+
+        <div class="shop-hero-copy">
+            <p class="eyebrow">GREEN LIVING COLLECTION</p>
+            <h2><span class="shop-hero-heading-label">Shop Plants</span><span class="shop-hero-heading-main">Bring Nature <em>Home</em></span></h2>
+            <p class="shop-hero-subtitle">Discover beautiful plants and transform every corner into a refreshing green sanctuary.</p>
+            <a href="#productGrid" class="btn btn-light shop-hero-button" aria-label="Shop plants now">Shop Now <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="shop-hero-visual" aria-hidden="true">
+            <img src="assets/products/photography/shop-hero-plants.png" alt="">
+            <span class="shop-hero-visual-light"></span>
+        </div>
+    </div>
+
+    <div class="category-list reveal" aria-label="Shop product categories">
+        <button class="category-btn active" data-category="All" type="button">🌿 All Plants</button>
+        <button class="category-btn" data-category="Indoor" type="button">⌂ Indoor</button>
+        <button class="category-btn" data-category="Outdoor" type="button">♧ Outdoor</button>
+        <button class="category-btn" data-category="Succulent" type="button">♣ Succulents</button>
+        <button class="category-btn" data-category="Air Purifying" type="button">✣ Air Purifying</button>
+        <button class="category-btn" data-category="Flowering" type="button">❀ Flowering</button>
+        <button class="category-btn" data-category="Gift Plants" type="button">♧ Gift Plants</button>
+        <button class="category-btn" data-category="Premium Plants" type="button">♕ Premium Plants</button>
+        <button class="category-btn" data-category="Office Plants" type="button">▤ Office Plants</button>
+        <button class="category-btn" data-category="Pots" type="button">▱ Pots</button>
+        <button class="category-btn" data-category="Accessories" type="button">✂ Accessories</button>
+    </div>
+
+    <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    <p class="empty-message" id="emptyMessage" hidden>No plants found.</p>
+</section>
+
+
+<!-- CUSTOMIZE YOUR OWN PLANT -->
+<section class="customizer-section section-padding" id="customize">
+  <div class="customizer-page-heading reveal">
+    <div>
+      <p class="eyebrow">NATURE, MADE PERSONAL</p>
+      <h2>Customize Your Own Plant</h2>
+      <p class="customizer-intro">Choose your plant, pot, style and add a personal touch to create a unique green companion.</p>
+    </div>
+  </div>
+
+  <div class="customizer-layout customizer-layout-two-column">
+    <form class="customizer-form" id="customPlantForm">
+      <div class="customizer-form-title"><span aria-hidden="true">❧</span><h3>Create Your Personalized Plant</h3></div>
+      <div class="customizer-field-grid">
+        <label>Customization Type<select name="customizationType" id="customizationType" required><option value="Indoor">Personalized Plant</option><option value="Balcony">Balcony Plant</option><option value="Gift">Gift Plant</option></select></label>
+        <label>Select Plant<select name="plant" id="customPlant" required></select></label>
+        <label>Pot Style<select name="pot" id="customPot" required><option>Premium Ceramic Pot</option><option>Modern Minimalist Pot</option><option>Terracotta Pot</option><option>Decorative Designer Pot</option><option>Hanging Planter</option><option>Balcony Planter</option><option>Small Desk Pot</option><option>Large Floor Pot</option></select></label>
+        <label>Pot Colour<select name="potColor" id="customPotColor" required><option>Matte White</option><option>Terracotta</option><option>Matte Black</option><option>Sage Green</option><option>Cream</option><option>Pastel Pink</option><option>Natural Beige</option></select></label>
+        <label>Pot Size<select name="potSize" id="customPotSize" required><option>Small</option><option selected>Medium</option><option>Large</option></select></label>
+        <label>Plant Arrangement<select name="arrangement" id="customArrangement"><option>Single centered plant</option><option>Lush and full</option><option>Multiple stems</option><option>Compact arrangement</option><option>Natural spreading arrangement</option></select></label>
+        <label class="customizer-full-field">Background / Environment<select name="environment" id="customEnvironment"><option>Warm minimalist home</option><option>Modern living room</option><option>Balcony</option><option>Office</option><option>Garden</option><option>Botanical studio</option><option>Natural wooden interior</option></select></label>
+        <label>Customer Name<input name="customerName" id="customCustomerName" maxlength="60" autocomplete="name" placeholder="Your name" required></label>
+        <label>Text to Print on Pot<input name="personalizationText" id="customPotText" maxlength="36" placeholder="e.g. Welcome Home" required></label>
+        <label class="customizer-full-field">Custom Message <span>(Optional)</span><textarea name="customMessage" id="customMessage" maxlength="300" rows="2" placeholder="A little greenery for a happier home..."></textarea></label>
+      </div>
+      <div class="gift-options" id="giftOptions" hidden>
+        <h4>Gift finishing</h4>
+        <label class="customizer-check"><input type="checkbox" name="giftWrap" id="customGiftWrap" checked> Add premium gift wrapping (+₹149)</label>
+        <label class="customizer-full-field">Gift Message <span>(Optional)</span><textarea name="giftMessage" id="customGiftMessage" maxlength="240" rows="2" placeholder="Write a message for the recipient..."></textarea></label>
+      </div>
+      <div class="customizer-price-line"><div><span>Estimated Total</span><strong id="customPlantPrice">₹1,299</strong></div><small>Price updates with your selections.</small></div>
+      <div class="customizer-form-actions">
+        <button class="btn btn-dark custom-generate-btn" id="generateCustomPlant" type="submit">🛒 Add Customized Plant to Cart</button>
+        <button class="btn btn-light custom-buy-btn" id="buyCustomPlant" type="button">⚡ Buy Now</button>
+      </div>
+      <p class="customizer-privacy-note">Your selections and personalized message are saved with your cart item. No preview image or external image-generation service is used.</p>
+    </form>
+
+    <aside class="customizer-profile-column">
+      <div class="customizer-design-summary" aria-live="polite">
+        <div class="custom-info-heading"><span aria-hidden="true">✿</span><div><p class="eyebrow">YOUR PERSONAL DETAILS</p><h3>Design Summary</h3></div></div>
+        <dl id="customDesignDetails"></dl>
+        <p class="design-summary-note">Your selections update automatically as you design your plant.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- PLANT PASSPORT -->
+<section class="passport-section section-padding" id="plantCare">
+ 
+    <div class="passport-image reveal">
+ 
+        <img
+            src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=85"
+            alt="Sunlit tropical leaves in a botanical interior"
+            loading="lazy">
+ 
+    </div>
+ 
+ 
+    <div class="passport-content reveal">
+ 
+        <p class="eyebrow">KNOW YOUR PLANTS</p>
+ 
+        <h2>
+            Every Plant Has a Story.<br>
+            <em>Discover Yours.</em>
+        </h2>
+ 
+        <p>
+            Learn about sunlight, watering routines and growing habits
+            before bringing a plant home.
+        </p>
+ 
+        <a href="#shop" class="btn btn-dark">
+            Discover Plant Care
+        </a>
+ 
+    </div>
+ 
+</section>
+ 
+ 
+ 
+
+<!-- WHY GREEN LIVING — full width, after KNOW YOUR PLANTS -->
+<section class="why-green-living-section section-padding" aria-labelledby="whyGreenLivingTitle">
+
+    <div class="why-green-living-container reveal">
+
+        <div class="why-green-heading">
+            <p class="eyebrow">ROOTED IN EVERYDAY LIFE</p>
+            <h2 id="whyGreenLivingTitle">Why Green Living</h2>
+            <p>Thoughtful greenery, responsibly chosen and easy to care for — made for the way you live.</p>
+        </div>
+
+        <div class="why-green-grid">
+            <article class="why-green-card why-green-card--happiness">
+                <span class="why-green-icon" aria-hidden="true">🌱</span>
+                <div>
+                    <h3>Plant Happiness</h3>
+                    <p>Healthier plants, happier rooms. Find greenery that suits your light, space and routine.</p>
+                </div>
+            </article>
+
+            <article class="why-green-card why-green-card--choices">
+                <span class="why-green-icon" aria-hidden="true">🌍</span>
+                <div>
+                    <h3>Greener Choices</h3>
+                    <p>Choose plants and pots with care, so your home grows a little more sustainable every day.</p>
+                </div>
+            </article>
+
+            <article class="why-green-card why-green-card--care">
+                <span class="why-green-icon" aria-hidden="true">🚿</span>
+                <div>
+                    <h3>Care Made Simple</h3>
+                    <p>Clear watering, light and care guidance helps every plant settle in and thrive.</p>
+                </div>
+            </article>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+ 
+ 
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+          <a class="logo footer-logo" href="#home" aria-label="GreenLiving home">
+    <img
+        src="assets/logo/GL.png"
+        alt="Green Living Logo"
+        class="footer-logo-image"
+    >
+
+    <span class="footer-brand-name">
+        Green Living
+    </span>
+</a>
+
+            <p class="footer-tagline">Live Green. Feel Good.</p>
+
+            <p>
+                Nature inside the architecture.<br>
+                Make room for nature. Grow a greener everyday.
+            </p>
+
+            <div class="footer-social" aria-label="Social media">
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Instagram">◎</a>
+                <a href="#" aria-label="Pinterest">p</a>
+                <a href="#" aria-label="YouTube">▶</a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="#studio">Garden Studio</a>
+            <a href="#shop">Shop Plants</a>
+            <a href="#plantCare">Plant Care</a>
+            <a href="#studio">Garden Planner</a>
+            <a href="#dashboard">My Garden</a>
+            <a href="#" id="trackOrderNav">Track order</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Discover</h4>
+            <a href="#plantCare">Plant Tips</a>
+            <a href="#plantCare">Green Living Guide</a>
+            <a href="#dashboard">Sustainability</a>
+            <a href="#shop">Indoor Plants</a>
+            <a href="#shop">Outdoor Plants</a>
+        </div>
+
+        <div class="footer-column footer-newsletter">
+            <h4>Stay Connected</h4>
+            <p>Grow with us and make every space greener.</p>
+
+            <form class="newsletter-form" id="newsletterForm">
+                <label class="sr-only" for="newsletterEmail">Email address</label>
+                <input id="newsletterEmail" type="email" placeholder="Your email address" autocomplete="email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+
+            <div class="footer-demo-details" aria-label="Demo social and contact details">
+                <span>Instagram: @greenliving_official</span>
+                <span>Facebook: Green Living</span>
+                <span>Twitter/X: @greenliving</span>
+                <span>YouTube: Green Living</span>
+                <span>Contact: +91 98765 43210</span>
+            </div>
+
+            <svg class="footer-plant" aria-hidden="true"><use href="#gl-leaf"/></svg>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 Green Living. All rights reserved.</span>
+
+        <nav class="footer-legal" aria-label="Legal and contact links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="mailto:hello@greenliving.example">Contact Us</a>
+        </nav>
+
+        <span>GROW GREEN. LIVE WELL.</span>
+    </div>
+
+</footer>
+ 
+ 
+<!-- PRODUCT DETAILS MODAL -->
+<div class="modal-backdrop" id="productModal">
+ 
+    <div class="product-modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+
+        <button class="modal-close" id="modalClose" aria-label="Close plant details">×</button>
+ 
+        <div class="modal-image">
+            <img id="modalImage" src="" alt="Selected plant">
+        </div>
+ 
+        <div class="modal-info">
+ 
+            <p class="eyebrow" id="modalCategory">PLANT</p>
+ 
+            <h2 id="modalName">Plant name</h2>
+ 
+            <p class="modal-price" id="modalPrice"></p>
+ 
+            <p id="modalDescription"></p>
+ 
+ 
+            <div class="plant-details">
+ 
+                <div>
+                    <span>☀️</span>
+                    <strong>Light</strong>
+                    <small id="modalLight"></small>
+                </div>
+ 
+                <div>
+                    <span>💧</span>
+                    <strong>Water</strong>
+                    <small id="modalWater"></small>
+                </div>
+ 
+                <div>
+                    <span>🌱</span>
+                    <strong>Care</strong>
+                    <small id="modalCare"></small>
+                </div>
+ 
+            </div>
+ 
+ 
+            <div class="modal-product-quantity"><label for="modalProductQuantity">Quantity</label><input id="modalProductQuantity" type="number" min="1" max="20" value="1"></div>
+            <div id="modalPotDetails" class="modal-pot-details" hidden></div>
+            <p class="modal-stock-status" id="modalStockStatus">Availability: In stock</p>
+            <div id="modalRelatedProducts" class="modal-related-products"></div>
+            <div class="modal-actions">
+                <button class="btn btn-dark full-btn" id="modalAddCart">
+                    Add to Cart
+                </button>
+                <button class="btn btn-outline-dark full-btn" id="modalBuyNow">
+                    Buy Now
+                </button>
+            </div>
+ 
+        </div>
+ 
+    </div>
+ 
+</div>
+ 
+ 
+<!-- CHECKOUT -->
+<div class="modal-backdrop checkout-backdrop" id="checkoutModal">
+
+    <div class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+
+        <button class="modal-close" id="checkoutClose" aria-label="Close checkout">×</button>
+
+        <div id="checkoutFormView">
+
+            <header class="checkout-header">
+                <p class="eyebrow">SECURE CHECKOUT</p>
+                <h2 id="checkoutTitle">Complete your order</h2>
+                <p>Fresh from the nursery, delivered with care.</p>
+            </header>
+
+            <div class="checkout-layout">
+
+                <form class="checkout-form" id="checkoutForm">
+
+                    <fieldset>
+                        <legend>Delivery details</legend>
+
+                        <div class="checkout-field">
+                            <label for="fullName">Full name</label>
+                            <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+                        </div>
+
+                        <div class="checkout-field-row">
+                            <div class="checkout-field">
+                                <label for="phone">Phone</label>
+                                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                            </div>
+                            <div class="checkout-field">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" autocomplete="email" required>
+                            </div>
+                        </div>
+
+                        <div class="checkout-field">
+                            <label for="address">Address</label>
+                            <input id="address" name="address" type="text" autocomplete="street-address" required>
+                        </div>
+
+                        <div class="checkout-field-row">
+                            <div class="checkout-field">
+                                <label for="city">City</label>
+                                <input id="city" name="city" type="text" autocomplete="address-level2" required>
+                            </div>
+                            <div class="checkout-field">
+                                <label for="pincode">PIN code</label>
+                                <input id="pincode" name="pincode" type="text" inputmode="numeric" autocomplete="postal-code" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Payment</legend>
+
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="COD" checked>
+                                <span>
+                                    <strong>Cash on Delivery</strong>
+                                    <small>Pay when your plants arrive</small>
+                                </span>
+                            </label>
+                        </div>
+
+                        <p class="payment-note">Pay when your order arrives. No online payment is collected.</p>
+
+                        <!-- Kept empty and hidden: checkout only supports pay on delivery. -->
+                        <div class="upi-fields" id="upiFields" hidden></div>
+                    </fieldset>
+
+                    <button class="btn btn-dark full-btn" type="submit">Place order</button>
+                    <p class="checkout-note">Your order is saved securely. Payment is collected on delivery.</p>
+
+                </form>
+
+                <aside class="checkout-summary">
+                    <h3>Order summary</h3>
+                    <div id="checkoutSummary" class="checkout-summary-list"></div>
+                    <div class="checkout-breakdown">
+                        <div><span>Subtotal</span><strong id="checkoutSubtotal">₹0</strong></div>
+                        <div><span>Delivery</span><strong id="checkoutDelivery">Free</strong></div>
+                    </div>
+                    <div class="checkout-total">
+                        <span>Total</span>
+                        <strong id="checkoutGrandTotal">₹0</strong>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+
+        <div class="order-view" id="orderSuccessView" hidden>
+            <div class="order-badge" aria-hidden="true">✓</div>
+            <p class="eyebrow">ORDER CONFIRMED</p>
+            <h2>Your plants are on their way.</h2>
+            <p>Thank you, <strong id="successCustomerName"></strong>. We will take good care of your green friends.</p>
+
+            <div class="order-facts">
+                <div><span>Order</span><strong id="successOrderNumber"></strong></div>
+                <div><span>Payment</span><strong id="successPaymentMethod"></strong></div>
+                <div><span>Arrives</span><strong id="successEta"></strong></div>
+            </div>
+
+            <div class="order-items" id="successOrderItems"></div>
+
+            <div class="order-breakdown">
+                <div><span>Subtotal</span><strong id="successSubtotal"></strong></div>
+                <div><span>Delivery</span><strong id="successDelivery"></strong></div>
+                <div class="order-breakdown-total"><span>Total</span><strong id="successOrderTotal"></strong></div>
+            </div>
+
+            <div class="order-actions">
+                <button class="btn btn-dark" id="trackOrderButton" type="button">Track order</button>
+                <button class="btn btn-outline-dark" id="continueShoppingButton" type="button">Continue shopping</button>
+            </div>
+        </div>
+
+        <div class="order-view" id="orderTrackingView" hidden>
+            <p class="eyebrow">LIVE ORDER TRACKING</p>
+            <h2>Order <span id="trackingOrderNumber"></span></h2>
+            <p class="tracking-address">
+                <strong id="trackingDeliveryName"></strong>
+                <span id="trackingDeliveryAddress"></span>
+            </p>
+
+            <p class="tracking-eta" id="trackingEta"></p>
+
+            <div class="tracking-progress" aria-hidden="true">
+                <span id="trackingProgressBar"></span>
+            </div>
+
+            <div class="tracking-timeline" id="trackingTimeline"></div>
+
+            <div class="tracking-items" id="trackingItems"></div>
+
+            <div class="checkout-total">
+                <span>Order total</span>
+                <strong id="trackingTotal"></strong>
+            </div>
+
+            <div class="order-actions">
+                <button class="btn btn-outline-dark" id="backToConfirmation" type="button">Back to confirmation</button>
+                <button class="btn btn-dark" id="closeTrackingButton" type="button">Done</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- CART -->
+<div class="drawer-backdrop" id="cartBackdrop"></div>
+ 
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
+
+    <div class="drawer-header">
+
+        <h2 id="cartDrawerTitle">Your Cart</h2>
+
+        <button class="modal-close" id="cartClose" aria-label="Close cart">×</button>
+ 
+    </div>
+ 
+ 
+    <div class="cart-items" id="cartItems"></div>
+ 
+ 
+    <div class="cart-footer">
+ 
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">₹0</strong>
+        </div>
+ 
+        <button class="btn btn-dark full-btn" id="checkoutButton">
+            Continue
+        </button>
+ 
+        <p class="muted">
+            Demo store — checkout is not connected.
+        </p>
+ 
+    </div>
+ 
+</aside>
+ 
+ 
+<div class="toast" id="toast"></div>
+ 
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    ↑
+</button>
+ 
+ 
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const preview = document.getElementById("logoPreview");
+    const closeBtn = document.getElementById("closeLogoPreview");
+
+    const logos = document.querySelectorAll(
+        ".navbar .logo-image, .footer-logo-image"
+    );
+
+    logos.forEach(logo => {
+        logo.style.cursor = "zoom-in";
+
+        logo.addEventListener("click", event => {
+            event.preventDefault();
+            preview.classList.add("active");
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    function closePreview() {
+        preview.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+
+    closeBtn.addEventListener("click", closePreview);
+
+    preview.addEventListener("click", event => {
+        if (event.target === preview) {
+            closePreview();
+        }
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            closePreview();
+        }
+    });
+
+});
+</script>
+<script src="customizer.js"></script>
+ 
+<!-- Garden Studio photo-based botanical interactions -->
+<script src="plantAnatomy.js"></script>
+
+<!-- Green-themed analytics dashboard -->
+<script src="garden-dashboard.js"></script>
+
+<!-- LOGO PREVIEW POPUP -->
+<div class="logo-preview-overlay" id="logoPreview">
+    <button class="logo-preview-close" id="closeLogoPreview" aria-label="Close">
+        &times;
+    </button>
+
+    <img src="assets/logo/GL.png" alt="Green Living Large Logo">
+
+    <h2>Green Living</h2>
+</div>
+</body>
+</html>
